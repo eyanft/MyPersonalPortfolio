@@ -1,4 +1,4 @@
-import { X, ExternalLink, Github, Calendar, Users } from 'lucide-react';
+import { X, ExternalLink, Github, Users } from 'lucide-react';
 
 interface Project {
   name: string;
@@ -7,8 +7,10 @@ interface Project {
   technologies: string[];
   color: string;
   features: string[];
-  duration: string;
   role: string;
+  challenge: string;
+  solution: string;
+  image?: string;
   github?: string;
   demo?: string;
 }
@@ -26,8 +28,9 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
     en: {
       features: 'Key Features',
       technologies: 'Technologies Used',
-      duration: 'Duration',
       role: 'Role',
+      challenge: 'The Challenge',
+      solution: 'Our Solution',
       viewDemo: 'View Demo',
       viewCode: 'View Code',
       close: 'Close'
@@ -35,8 +38,9 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
     fr: {
       features: 'Fonctionnalités Clés',
       technologies: 'Technologies Utilisées',
-      duration: 'Durée',
       role: 'Rôle',
+      challenge: 'Le Défi',
+      solution: 'Notre Solution',
       viewDemo: 'Voir Démo',
       viewCode: 'Voir Code',
       close: 'Fermer'
@@ -61,7 +65,18 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
         </button>
 
         <div className={`h-64 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-          <div className="absolute inset-0 bg-black/30"></div>
+          {project.image ? (
+            <>
+              <img 
+                src={project.image} 
+                alt={project.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/50"></div>
+            </>
+          ) : (
+            <div className="absolute inset-0 bg-black/30"></div>
+          )}
           <div className="absolute inset-0 flex items-center justify-center">
             <h2 className="text-5xl font-bold text-white z-10">{project.name}</h2>
           </div>
@@ -77,20 +92,22 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10">
-              <div className="flex items-center gap-3 mb-3">
-                <Calendar className="text-cyan-400" size={20} />
-                <h3 className="text-lg font-semibold text-white">{t.duration}</h3>
-              </div>
-              <p className="text-white/70">{project.duration}</p>
+              <h3 className="text-lg font-semibold text-cyan-400 mb-3">{t.challenge}</h3>
+              <p className="text-white/70">{project.challenge}</p>
             </div>
 
             <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10">
-              <div className="flex items-center gap-3 mb-3">
-                <Users className="text-cyan-400" size={20} />
-                <h3 className="text-lg font-semibold text-white">{t.role}</h3>
-              </div>
-              <p className="text-white/70">{project.role}</p>
+              <h3 className="text-lg font-semibold text-cyan-400 mb-3">{t.solution}</h3>
+              <p className="text-white/70">{project.solution}</p>
             </div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10">
+            <div className="flex items-center gap-3 mb-3">
+              <Users className="text-cyan-400" size={20} />
+              <h3 className="text-lg font-semibold text-white">{t.role}</h3>
+            </div>
+            <p className="text-white/70">{project.role}</p>
           </div>
 
           <div>

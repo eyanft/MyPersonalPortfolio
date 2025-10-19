@@ -13,8 +13,10 @@ interface Project {
   technologies: string[];
   color: string;
   features: string[];
-  duration: string;
   role: string;
+  challenge: string;
+  solution: string;
+  image?: string;
   github?: string;
   demo?: string;
 }
@@ -28,83 +30,126 @@ const Projects = ({ language }: ProjectsProps) => {
       viewProject: 'View Project',
       projects: [
         {
+          
+            name: 'Merx',
+            description: 'Peer-to-peer marketplace mobile application',
+            fullDescription: 'Merx is an innovative mobile marketplace application that transforms digital exchanges between individuals in Tunisia. It combines cutting-edge technology with user-centric design to create a seamless trading experience.',
+            challenge: 'Create a comprehensive P2P marketplace platform that addresses gaps in existing solutions like Tayara and Facebook Marketplace.',
+            solution: 'Development of a mobile application with AI-powered features, microservices architecture, and integrated messaging system.',
+            technologies: ['React Native', 'Spring Boot', 'PostgreSQL', 'Firebase', 'FastAPI', 'Docker'],
+            color: 'from-indigo-500 to-purple-500',
+            image: '/assets/merx.png',
+            features: [
+              'AI-powered visual search: Search products using images',
+              'Intelligent recommendations: Personalized product suggestions using ML algorithms',
+              'Integrated messaging: Real-time chat between buyers and sellers',
+              'Payment integration: Secure payment processing with Stripe',
+              'User verification: SMS verification via Twilio',
+              'Microservices architecture: Scalable and modular backend',
+              'Image optimization: Cloud storage and optimization with Cloudinary',
+              'Auction system: Support for bidding on products'
+            ],
+            role: 'Software Developer'
+          },
+          {
           name: 'ProConnect',
-          description: 'Professional networking platform connecting talents with opportunities',
-          fullDescription: 'ProConnect is a comprehensive professional networking platform designed to bridge the gap between talented professionals and career opportunities. The platform features real-time messaging, advanced search filters, and intelligent job matching algorithms.',
-          technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
+          description: 'Freelance platform connecting freelancers and clients',
+          fullDescription: 'ProConnect is a modern freelance platform designed to connect freelancers with clients while ensuring secure transactions and seamless project management.',
+          challenge: 'Create an intuitive platform connecting freelancers and clients while ensuring secure transactions.',
+          solution: 'Development of a modern user interface with an intelligent matching system and secure payment system.',
+          technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
           color: 'from-blue-500 to-cyan-500',
+          image: '/assets/proconnect.png',
           features: [
-            'Real-time chat and messaging system',
-            'Advanced profile matching algorithm',
-            'Job posting and application management',
-            'Professional network building tools',
-            'Resume builder and portfolio showcase'
+            'User management system with detailed profiles for Freelancers and Clients',
+            'Advanced search with filters by skills, location, and hourly rate',
+            'Project posting and offer management',
+            'Ratings and reviews after project completion',
+            'Real-time notification system for projects and offers'
           ],
-          duration: '6 months',
           role: 'Full Stack Developer'
         },
         {
           name: 'Autify',
-          description: 'Automated testing platform for web applications with AI-powered insights',
-          fullDescription: 'Autify revolutionizes web application testing with AI-powered automation. It intelligently identifies potential bugs, generates test cases automatically, and provides actionable insights to improve code quality.',
-          technologies: ['TypeScript', 'React', 'Python', 'TensorFlow'],
+          description: 'Insurance mobile app for car insurance management',
+          fullDescription: 'Autify is an intuitive mobile application that simplifies car insurance contract management and claims tracking for users on the go.',
+          challenge: 'Simplify car insurance contract management and claims tracking for mobile users.',
+          solution: 'Intuitive mobile application allowing complete contract management and real-time claims tracking.',
+          technologies: ['Dart', 'Flutter', 'Java', 'Spring Boot', 'MySQL'],
           color: 'from-purple-500 to-pink-500',
+          image: '/assets/autify.png',
           features: [
-            'AI-powered test case generation',
-            'Automated bug detection and reporting',
-            'Visual regression testing',
-            'Performance monitoring and analytics',
-            'Integration with CI/CD pipelines'
+            'Member management: Create and manage member profiles with registration and personal information',
+            'Member history and tracking: Display of past and ongoing requests',
+            'Claim management: Interface for users to create claims',
+            'Request status tracking: Real-time tracking with automatic updates',
+            'Notifications: Email or SMS notifications for updates',
+            'Vehicle condition tracking: Simulate vehicle condition and cost estimation',
+            'Replacement car management: Manage replacement vehicle requests',
+            'Reimbursements: Submit and track reimbursement requests'
           ],
-          duration: '8 months',
-          role: 'Lead Developer'
+          role: 'Mobile Developer'
         },
         {
           name: 'NovaTech',
-          description: 'E-commerce platform for tech products with advanced filtering',
-          fullDescription: 'NovaTech is a modern e-commerce solution specifically designed for technology products. It features advanced filtering, secure payment processing, and an intuitive user experience.',
-          technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind'],
+          description: 'HR Dashboard for human resources management',
+          fullDescription: 'NovaTech is a modern and intuitive HR management dashboard that centralizes human resources operations and streamlines administrative processes.',
+          challenge: 'Create a centralized tool for human resources management.',
+          solution: 'Development of a modern and intuitive dashboard with advanced HR management features.',
+          technologies: ['Angular', 'Spring Boot', 'MySQL'],
           color: 'from-pink-500 to-rose-500',
+          image: '/assets/novatechimg.png',
           features: [
-            'Advanced product filtering and search',
-            'Secure payment integration with Stripe',
-            'Inventory management system',
-            'Customer review and rating system',
-            'Order tracking and notifications'
+            'Administrator access: Add, edit, and delete departments and employees',
+            'Request management: Process and validate requests with automatic document generation',
+            'Administrative documents: Generate work certificates, insurance confirmations, and salary advances',
+            'Request list: Display new requests with filtering options',
+            'Employee access: Update passwords and download validated documents',
+            'Leave request: Automatic balance calculation with restrictions',
+            'Payslip request: Limited to once per month',
+            'Salary advance request: Up to 1000 DT once per month'
           ],
-          duration: '5 months',
-          role: 'Frontend Developer'
-        },
-        {
-          name: 'RepasRes',
-          description: 'Restaurant reservation system with real-time availability',
-          fullDescription: 'RepasRes simplifies restaurant reservations with real-time table availability, integrated payments, and seamless booking management for both customers and restaurant owners.',
-          technologies: ['React', 'Firebase', 'Google Maps API'],
-          color: 'from-green-500 to-emerald-500',
-          features: [
-            'Real-time table availability tracking',
-            'Interactive restaurant location maps',
-            'Automated booking confirmations',
-            'Menu preview and special offers',
-            'Customer preferences and history'
-          ],
-          duration: '4 months',
           role: 'Full Stack Developer'
         },
         {
-          name: 'Magon Farm',
-          description: 'Farm management application for agricultural operations',
-          fullDescription: 'Magon Farm is a comprehensive mobile application designed to help farmers manage their agricultural operations efficiently. It includes crop monitoring, weather forecasting, and resource management tools.',
-          technologies: ['Flutter', 'Dart', 'Firebase', 'Google Maps'],
-          color: 'from-amber-500 to-orange-500',
+          name: 'RepasRes',
+          description: 'Food management app to reduce food waste',
+          fullDescription: 'RepasRes is a mobile application designed to reduce food waste by facilitating the sharing and management of food surplus between restaurants, supermarkets, and consumers.',
+          challenge: 'Reduce food waste by facilitating surplus sharing.',
+          solution: 'Mobile application allowing easy management and sharing of food surplus.',
+          technologies: ['Dart', 'Flutter'],
+          color: 'from-green-500 to-emerald-500',
+          image: '/assets/repares.jpg',
           features: [
-            'Crop health monitoring and alerts',
-            'Weather forecasting integration',
-            'Resource and inventory management',
-            'Field mapping with GPS coordinates',
-            'Harvest planning and tracking'
+            'User management: Profiles for restaurants, supermarkets, consumers, and waste managers',
+            'Low-cost meal sales: Platform to sell prepared meals using soon-to-expire products',
+            'Discounted products: Sale of discounted food items before expiration',
+            'Waste posting: Users can post their food waste for collection',
+            'Waste reduction encouragement: Promote eco-friendly practices to reduce food waste'
           ],
-          duration: '7 months',
+          role: 'Mobile Developer'
+        },
+        {
+          name: 'Magon Farm',
+          description: 'Cattle management application for farming operations',
+          fullDescription: 'Magon Farm is a comprehensive mobile and web application designed to enhance cattle farming management, ensure regulatory compliance, and automate tasks through centralized data management.',
+          challenge: 'Enhance cattle farming management, ensure regulatory compliance, and automate tasks.',
+          solution: 'A mobile and web application that centralizes cattle management, integrates data analysis, and facilitates collaboration.',
+          technologies: ['Dart', 'Flutter'],
+          color: 'from-amber-500 to-orange-500',
+          image: '/assets/magon.png',
+          features: [
+            'User management: Multi-level access control (Administrator, Owner, and Associate)',
+            'Cattle tracking: Real-time traceability and monitoring',
+            'Task automation: Eliminate paper-based processes to optimize production',
+            'Quality control: Implementation of rigorous standards for compliance',
+            'Data centralization: Integrated storage with real-time synchronization',
+            'Performance analysis: Automated reports and charts for decision-making',
+            'Real-time notifications: Instant alerts for updates and key events',
+            'Messaging system: Real-time chat for collaboration',
+            'Publication system: Share updates and news with users',
+            'Resource management: Add and access feed and medication information'
+          ],
           role: 'Mobile Developer'
         }
       ]
@@ -114,83 +159,125 @@ const Projects = ({ language }: ProjectsProps) => {
       viewProject: 'Voir Projet',
       projects: [
         {
-          name: 'ProConnect',
-          description: 'Plateforme de networking professionnel connectant talents et opportunités',
-          fullDescription: 'ProConnect est une plateforme complète de réseautage professionnel conçue pour combler le fossé entre les professionnels talentueux et les opportunités de carrière. La plateforme comprend une messagerie en temps réel, des filtres de recherche avancés et des algorithmes intelligents de matching.',
-          technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-          color: 'from-blue-500 to-cyan-500',
+          name: 'Merx',
+          description: 'Application mobile de marketplace peer-to-peer',
+          fullDescription: 'Merx est une application mobile innovante de marketplace qui transforme les échanges digitaux entre particuliers en Tunisie. Elle combine technologie de pointe et design centré sur l\'utilisateur pour créer une expérience d\'échange fluide.',
+          challenge: 'Créer une plateforme marketplace P2P complète qui comble les lacunes des solutions existantes comme Tayara et Facebook Marketplace.',
+          solution: 'Développement d\'une application mobile avec fonctionnalités IA, architecture microservices et système de messagerie intégré.',
+          technologies: ['React Native', 'Spring Boot', 'PostgreSQL', 'Firebase', 'FastAPI', 'Docker'],
+          color: 'from-indigo-500 to-purple-500',
+          image: '/assets/merx.png',
           features: [
-            'Système de chat et messagerie en temps réel',
-            'Algorithme avancé de matching de profils',
-            'Gestion des offres d\'emploi et candidatures',
-            'Outils de construction de réseau professionnel',
-            'Créateur de CV et vitrine de portfolio'
+            'Recherche visuelle IA : Rechercher des produits via images',
+            'Recommandations intelligentes : Suggestions personnalisées utilisant ML',
+            'Messagerie intégrée : Chat en temps réel entre acheteurs et vendeurs',
+            'Intégration paiement : Traitement sécurisé des paiements avec Stripe',
+            'Vérification utilisateur : Vérification SMS via Twilio',
+            'Architecture microservices : Backend scalable et modulaire',
+            'Optimisation d\'images : Stockage cloud et optimisation avec Cloudinary',
+            'Système d\'enchères : Support pour enchères sur produits'
           ],
-          duration: '6 mois',
+          role: 'Développeuse Full Stack'
+        },
+        {
+          name: 'ProConnect',
+          description: 'Plateforme freelance connectant freelancers et clients',
+          fullDescription: 'ProConnect est une plateforme freelance moderne conçue pour connecter les freelancers avec les clients tout en assurant des transactions sécurisées et une gestion de projet fluide.',
+          challenge: 'Créer une plateforme intuitive connectant freelancers et clients tout en assurant des transactions sécurisées.',
+          solution: 'Développement d\'une interface moderne avec un système de matching intelligent et un système de paiement sécurisé.',
+          technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+          color: 'from-blue-500 to-cyan-500',
+          image: '/assets/proconnect.png',
+          features: [
+            'Système de gestion d\'utilisateurs avec profils détaillés pour Freelancers et Clients',
+            'Recherche avancée avec filtres par compétences, localisation et taux horaire',
+            'Publication de projets et gestion des offres',
+            'Notes et avis après finalisation des projets',
+            'Système de notification en temps réel pour projets et offres'
+          ],
           role: 'Développeuse Full Stack'
         },
         {
           name: 'Autify',
-          description: 'Plateforme de tests automatisés pour applications web avec IA',
-          fullDescription: 'Autify révolutionne les tests d\'applications web avec l\'automatisation pilotée par l\'IA. Il identifie intelligemment les bugs potentiels, génère automatiquement des cas de test et fournit des insights actionnables.',
-          technologies: ['TypeScript', 'React', 'Python', 'TensorFlow'],
+          description: 'Application mobile d\'assurance pour gestion automobile',
+          fullDescription: 'Autify est une application mobile intuitive qui simplifie la gestion des contrats d\'assurance automobile et le suivi des sinistres pour les utilisateurs mobiles.',
+          challenge: 'Simplifier la gestion des contrats d\'assurance automobile et le suivi des sinistres pour utilisateurs mobiles.',
+          solution: 'Application mobile intuitive permettant une gestion complète des contrats et un suivi des sinistres en temps réel.',
+          technologies: ['Dart', 'Flutter', 'Java', 'Spring Boot', 'MySQL'],
           color: 'from-purple-500 to-pink-500',
+          image: '/assets/autify.png',
           features: [
-            'Génération de cas de test par IA',
-            'Détection et rapport automatiques de bugs',
-            'Tests de régression visuelle',
-            'Surveillance et analyses de performance',
-            'Intégration avec pipelines CI/CD'
+            'Gestion des membres : Créer et gérer les profils avec inscription et informations personnelles',
+            'Historique et suivi des membres : Affichage des demandes passées et en cours',
+            'Gestion des sinistres : Interface pour créer des réclamations',
+            'Suivi du statut des demandes : Suivi en temps réel avec mises à jour automatiques',
+            'Notifications : Notifications email ou SMS pour les mises à jour',
+            'Suivi de l\'état du véhicule : Simuler l\'état du véhicule et estimation des coûts',
+            'Gestion des véhicules de remplacement : Gérer les demandes de véhicules',
+            'Remboursements : Soumettre et suivre les demandes de remboursement'
           ],
-          duration: '8 mois',
-          role: 'Développeuse Principale'
+          role: 'Développeuse Mobile'
         },
         {
           name: 'NovaTech',
-          description: 'Plateforme e-commerce pour produits technologiques',
-          fullDescription: 'NovaTech est une solution e-commerce moderne spécialement conçue pour les produits technologiques. Elle propose un filtrage avancé, un traitement sécurisé des paiements et une expérience utilisateur intuitive.',
-          technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind'],
+          description: 'Tableau de bord RH pour gestion des ressources humaines',
+          fullDescription: 'NovaTech est un tableau de bord RH moderne et intuitif qui centralise les opérations de ressources humaines et rationalise les processus administratifs.',
+          challenge: 'Créer un outil centralisé pour la gestion des ressources humaines.',
+          solution: 'Développement d\'un tableau de bord moderne et intuitif avec fonctionnalités RH avancées.',
+          technologies: ['Angular', 'Spring Boot', 'MySQL'],
           color: 'from-pink-500 to-rose-500',
+          image: '/assets/novatechimg.png',
           features: [
-            'Filtrage et recherche avancés de produits',
-            'Intégration de paiement sécurisée avec Stripe',
-            'Système de gestion d\'inventaire',
-            'Système d\'avis et notes clients',
-            'Suivi de commandes et notifications'
+            'Accès administrateur : Ajouter, modifier et supprimer départements et employés',
+            'Gestion des demandes : Traiter et valider les demandes avec génération automatique de documents',
+            'Documents administratifs : Générer certificats de travail, confirmations d\'assurance et avances sur salaire',
+            'Liste des demandes : Afficher les nouvelles demandes avec options de filtrage',
+            'Accès employé : Mettre à jour mots de passe et télécharger documents validés',
+            'Demande de congé : Calcul automatique du solde avec restrictions',
+            'Demande de fiche de paie : Limitée à une fois par mois',
+            'Demande d\'avance sur salaire : Jusqu\'à 1000 DT une fois par mois'
           ],
-          duration: '5 mois',
-          role: 'Développeuse Frontend'
-        },
-        {
-          name: 'RepasRes',
-          description: 'Système de réservation de restaurants en temps réel',
-          fullDescription: 'RepasRes simplifie les réservations de restaurants avec disponibilité des tables en temps réel, paiements intégrés et gestion fluide des réservations pour clients et restaurateurs.',
-          technologies: ['React', 'Firebase', 'Google Maps API'],
-          color: 'from-green-500 to-emerald-500',
-          features: [
-            'Suivi en temps réel de la disponibilité des tables',
-            'Cartes interactives de localisation de restaurants',
-            'Confirmations de réservation automatiques',
-            'Aperçu du menu et offres spéciales',
-            'Préférences et historique client'
-          ],
-          duration: '4 mois',
           role: 'Développeuse Full Stack'
         },
         {
-          name: 'Magon Farm',
-          description: 'Application de gestion agricole pour opérations fermières',
-          fullDescription: 'Magon Farm est une application mobile complète conçue pour aider les agriculteurs à gérer efficacement leurs opérations agricoles. Elle inclut la surveillance des cultures, les prévisions météo et les outils de gestion des ressources.',
-          technologies: ['Flutter', 'Dart', 'Firebase', 'Google Maps'],
-          color: 'from-amber-500 to-orange-500',
+          name: 'RepasRes',
+          description: 'Application de gestion alimentaire pour réduire le gaspillage',
+          fullDescription: 'RepasRes est une application mobile conçue pour réduire le gaspillage alimentaire en facilitant le partage et la gestion des surplus alimentaires entre restaurants, supermarchés et consommateurs.',
+          challenge: 'Réduire le gaspillage alimentaire en facilitant le partage des surplus.',
+          solution: 'Application mobile permettant une gestion et un partage faciles des surplus alimentaires.',
+          technologies: ['Dart', 'Flutter'],
+          color: 'from-green-500 to-emerald-500',
+          image: '/assets/repares.jpg',
           features: [
-            'Surveillance de la santé des cultures et alertes',
-            'Intégration des prévisions météorologiques',
-            'Gestion des ressources et inventaire',
-            'Cartographie des champs avec coordonnées GPS',
-            'Planification et suivi des récoltes'
+            'Gestion des utilisateurs : Profils pour restaurants, supermarchés, consommateurs et gestionnaires de déchets',
+            'Vente de repas à bas prix : Plateforme pour vendre repas préparés avec produits bientôt périmés',
+            'Produits à prix réduit : Vente d\'articles alimentaires réduits avant expiration',
+            'Publication de déchets : Les utilisateurs peuvent publier leurs déchets alimentaires pour collecte',
+            'Encouragement à la réduction des déchets : Promouvoir pratiques écologiques'
           ],
-          duration: '7 mois',
+          role: 'Développeuse Mobile'
+        },
+        {
+          name: 'Magon Farm',
+          description: 'Application de gestion de bétail pour opérations fermières',
+          fullDescription: 'Magon Farm est une application mobile et web complète conçue pour améliorer la gestion de l\'élevage de bétail, assurer la conformité réglementaire et automatiser les tâches via une gestion centralisée des données.',
+          challenge: 'Améliorer la gestion de l\'élevage de bétail, assurer la conformité réglementaire et automatiser les tâches.',
+          solution: 'Application mobile et web qui centralise la gestion du bétail, intègre l\'analyse de données et facilite la collaboration.',
+          technologies: ['Dart', 'Flutter'],
+          color: 'from-amber-500 to-orange-500',
+          image: '/assets/magon.png',
+          features: [
+            'Gestion des utilisateurs : Contrôle d\'accès multi-niveaux (Administrateur, Propriétaire et Associé)',
+            'Suivi du bétail : Traçabilité et surveillance en temps réel',
+            'Automatisation des tâches : Éliminer les processus papier pour optimiser la production',
+            'Contrôle qualité : Mise en œuvre de normes rigoureuses pour conformité',
+            'Centralisation des données : Stockage intégré avec synchronisation en temps réel',
+            'Analyse des performances : Rapports et graphiques automatisés pour prise de décision',
+            'Notifications en temps réel : Alertes instantanées pour mises à jour et événements clés',
+            'Système de messagerie : Chat en temps réel pour collaboration',
+            'Système de publication : Partager mises à jour et nouvelles avec utilisateurs',
+            'Gestion des ressources : Ajouter et accéder aux informations sur alimentation et médicaments'
+          ],
           role: 'Développeuse Mobile'
         }
       ]
@@ -220,8 +307,18 @@ const Projects = ({ language }: ProjectsProps) => {
 
                   <div className="relative z-10">
                     <div className={`w-full h-48 mb-6 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                      <div className="absolute inset-0 bg-black/20"></div>
-                      <Code className="text-white/80 relative z-10" size={64} />
+                      {project.image ? (
+                        <img 
+                          src={project.image} 
+                          alt={project.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 bg-black/20"></div>
+                          <Code className="text-white/80 relative z-10" size={64} />
+                        </>
+                      )}
                     </div>
 
                     <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>

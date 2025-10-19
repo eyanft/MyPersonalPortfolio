@@ -11,19 +11,19 @@ const Experience = ({ language }: ExperienceProps) => {
         {
           company: 'WEVIOO',
           logo: '/assets/logo/wevioo.png',
-          role: 'Software Developer – End of Studies Internship',
+          role: 'End of Studies Internship',
           period: 'Feb 2025 - Jul 2025',
-          location: 'Ariana, Tunis, Tunisia',
+          location: 'Ariana, Tunisia',
           description: 'Development of a mobile application for an online P2P marketplace.',
           technologies: [
             'Spring Boot', 
-            'Microservices', 
             'PostgreSQL', 
             'React Native', 
             'NativeWind', 
             'Firebase', 
-            'Docker', 
-            'Python FastAPI'
+            'Python FastAPI',
+            'Microservices',
+            'Docker'
           ]
         },
         {
@@ -33,7 +33,7 @@ const Experience = ({ language }: ExperienceProps) => {
           period: 'Jul 2024 - Aug 2024',
           location: 'Manouba, Tunisia',
           description: 'Development of a website for showcasing car lubricant products with administrative management.',
-          technologies: ['HTML', 'CSS', 'JavaScript', 'Java', 'Spring Boot']
+          technologies: ['ReactJS', 'Spring Boot']
         },
         {
           company: 'Medianet',
@@ -42,16 +42,16 @@ const Experience = ({ language }: ExperienceProps) => {
           period: 'Feb 2024 - May 2024',
           location: 'Ariana, Tunisia',
           description: 'Conducted user studies, created wireframes, and developed web interfaces.',
-          technologies: ['Figma', 'CMS']
+          technologies: [ 'PHP', 'MySQL', 'CSS', 'HTML','WordPress','Figma' ]
         },
         {
           company: 'Tsunami IT',
           logo: '/assets/logo/tsunamiit.png',
-          role: 'Final Year Internship – Mobile Developer',
+          role: 'End of Studies Internship',
           period: 'Feb 2023 - May 2023',
           location: 'Tunis, Tunisia',
           description: 'Development of a mobile application for managing cattle, their production, and integrations.',
-          technologies: ['Dart', 'Flutter', 'JIRA', 'GitHub', 'Figma', 'Android Studio']
+          technologies: ['Dart', 'Flutter', 'Laravel', 'Microservices', 'MySQL']
         }
       ]
     },

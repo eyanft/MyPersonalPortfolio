@@ -71,13 +71,13 @@ const Hero = ({ language }: HeroProps) => {
       title: 'Eya Naffeti',
       description: 'Passionate about innovative technologies and optimizing user experiences.',
       projectsBtn: 'View My Projects',
-      contactBtn: 'Contact Me',
+      contactBtn: 'Download My CV',
     },
     fr: {
       title: 'Eya Naffeti',
       description: 'Passionnée par les technologies innovantes et l\'optimisation des expériences utilisateur.',
       projectsBtn: 'Voir Mes Projets',
-      contactBtn: 'Me Contacter',
+      contactBtn: 'Télécharger mon CV',
     }
   };
 
@@ -86,6 +86,16 @@ const Hero = ({ language }: HeroProps) => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const downloadCV = () => {
+    // Create a link element to trigger download
+    const link = document.createElement('a');
+    link.href = '/assets/CV_Eya_Naffeti.pdf'; // Path to your CV file
+    link.download = 'CV_Eya_Naffeti.pdf'; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -117,7 +127,7 @@ const Hero = ({ language }: HeroProps) => {
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
           </button>
           <button
-            onClick={() => scrollToSection('contact')}
+            onClick={downloadCV}
             className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold text-lg border border-white/20 hover:bg-white/20 hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
           >
             {t.contactBtn}
