@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram, Heart } from 'lucide-react';
 
 interface FooterProps {
   language: 'en' | 'fr';
@@ -7,10 +7,14 @@ interface FooterProps {
 const Footer = ({ language }: FooterProps) => {
   const content = {
     en: {
-      copyright: 'Made with love by Eya Naffeti © 2025 All rights reserved'
+      madeWith: 'Made with',
+      by: 'by Eya Naffeti',
+      rights: '© 2025 All rights reserved'
     },
     fr: {
-      copyright: 'Fait avec amour par Eya Naffeti © 2025 Tous droits réservés'
+      madeWith: 'Fait avec',
+      by: 'par Eya Naffeti',
+      rights: '© 2025 Tous droits réservés'
     }
   };
 
@@ -22,7 +26,7 @@ const Footer = ({ language }: FooterProps) => {
         <div className="flex flex-col items-center space-y-6">
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/eyanft"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
@@ -30,7 +34,7 @@ const Footer = ({ language }: FooterProps) => {
               <Github className="text-white/70 hover:text-white" size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/eyanaffeti/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
@@ -43,18 +47,14 @@ const Footer = ({ language }: FooterProps) => {
             >
               <Mail className="text-white/70 hover:text-white" size={20} />
             </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
-            >
-              <Instagram className="text-white/70 hover:text-white" size={20} />
-            </a>
+         
           </div>
 
-          <p className="text-white/60 text-sm text-center">
-            {t.copyright}
+          <p className="text-white/60 text-sm text-center flex items-center gap-2 flex-wrap justify-center">
+            <span>{t.madeWith}</span>
+            <Heart className="text-pink-500 fill-pink-500 animate-pulse" size={16} />
+            <span>{t.by}</span>
+            <span>{t.rights}</span>
           </p>
         </div>
       </div>

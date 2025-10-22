@@ -47,7 +47,7 @@ const Projects = ({ language }: ProjectsProps) => {
               'User verification: SMS verification via Twilio',
               'Microservices architecture: Scalable and modular backend',
               'Image optimization: Cloud storage and optimization with Cloudinary',
-              'Auction system: Support for bidding on products'
+              
             ],
             role: 'Software Developer'
           },

@@ -21,7 +21,6 @@ const Contact = ({ language }: ContactProps) => {
       messagePlaceholder: 'Your Message',
       sendButton: 'Send Message',
       emailLabel: 'Email',
-      phoneLabel: 'Phone',
       locationLabel: 'Location'
     },
     fr: {
@@ -32,7 +31,6 @@ const Contact = ({ language }: ContactProps) => {
       messagePlaceholder: 'Votre Message',
       sendButton: 'Envoyer',
       emailLabel: 'Email',
-      phoneLabel: 'Téléphone',
       locationLabel: 'Localisation'
     }
   };
@@ -74,17 +72,6 @@ const Contact = ({ language }: ContactProps) => {
               </div>
             </div>
 
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                  <Phone className="text-white" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-white/60 text-sm mb-1">{t.phoneLabel}</h3>
-                  <p className="text-white font-medium">+216 29 160 766</p>
-                </div>
-              </div>
-            </div>
 
             <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10">
               <div className="flex items-center gap-4 mb-6">
@@ -93,7 +80,7 @@ const Contact = ({ language }: ContactProps) => {
                 </div>
                 <div>
                   <h3 className="text-white/60 text-sm mb-1">{t.locationLabel}</h3>
-                  <p className="text-white font-medium">Manouba, Tunisia</p>
+                  <p className="text-white font-medium">Tunis, Tunisia</p>
                 </div>
               </div>
             </div>

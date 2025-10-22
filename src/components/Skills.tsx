@@ -1,4 +1,4 @@
-import { Code2, Server, Smartphone, Database } from 'lucide-react';
+import { Code2, Server, Smartphone, Database, Wrench, Palette } from 'lucide-react';
 
 interface SkillsProps {
   language: 'en' | 'fr';
@@ -12,26 +12,38 @@ const Skills = ({ language }: SkillsProps) => {
         {
           name: 'Frontend',
           icon: Code2,
-          skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
+          skills: ['React', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
           color: 'from-blue-500 to-cyan-500'
         },
         {
           name: 'Backend',
           icon: Server,
-          skills: ['Node.js', 'Spring Boot', 'Java', 'Python', 'REST API', 'GraphQL'],
+          skills: ['Spring Boot', 'Spring Cloud', 'FastAPI', 'Python', 'Java'],
           color: 'from-purple-500 to-pink-500'
         },
         {
           name: 'Mobile',
           icon: Smartphone,
-          skills: ['Flutter', 'Dart', 'React Native', 'iOS', 'Android'],
+          skills: ['Flutter', 'Dart', 'React Native'],
           color: 'from-pink-500 to-rose-500'
         },
         {
           name: 'Database',
           icon: Database,
-          skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'],
+          skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'],
           color: 'from-green-500 to-emerald-500'
+        },
+        {
+          name: 'Tools & Services',
+          icon: Wrench,
+          skills: ['Git/GitHub/Gitlab', 'Postman', 'Stripe', 'Twilio', 'Cloudinary'],
+          color: 'from-orange-500 to-amber-500'
+        },
+        {
+          name: 'Design',
+          icon: Palette,
+          skills: ['Figma', 'Draw.io', 'Canva'],
+          color: 'from-indigo-500 to-violet-500'
         }
       ]
     },
@@ -41,26 +53,38 @@ const Skills = ({ language }: SkillsProps) => {
         {
           name: 'Frontend',
           icon: Code2,
-          skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
+          skills: ['React', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
           color: 'from-blue-500 to-cyan-500'
         },
         {
           name: 'Backend',
           icon: Server,
-          skills: ['Node.js', 'Spring Boot', 'Java', 'Python', 'REST API', 'GraphQL'],
+          skills: ['Spring Boot', 'Spring Cloud', 'FastAPI', 'Python', 'Java'],
           color: 'from-purple-500 to-pink-500'
         },
         {
           name: 'Mobile',
           icon: Smartphone,
-          skills: ['Flutter', 'Dart', 'React Native', 'iOS', 'Android'],
+          skills: ['Flutter', 'Dart', 'React Native'],
           color: 'from-pink-500 to-rose-500'
         },
         {
           name: 'Base de données',
           icon: Database,
-          skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'],
+          skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'],
           color: 'from-green-500 to-emerald-500'
+        },
+        {
+          name: 'Outils & Services',
+          icon: Wrench,
+          skills: ['Git/GitHub/Gitlab', 'Postman', 'Stripe', 'Twilio', 'Cloudinary'],
+          color: 'from-orange-500 to-amber-500'
+        },
+        {
+          name: 'Design',
+          icon: Palette,
+          skills: ['Figma', 'Draw.io', 'Canva'],
+          color: 'from-indigo-500 to-violet-500'
         }
       ]
     }
@@ -76,7 +100,7 @@ const Skills = ({ language }: SkillsProps) => {
         </h2>
         <div className="h-1 w-24 mx-auto bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-full mb-16"></div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {t.categories.map((category, index) => {
             const Icon = category.icon;
             return (

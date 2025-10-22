@@ -1,4 +1,4 @@
-import { Heart, Users } from 'lucide-react';
+import { Heart, Users, Award, Calendar } from 'lucide-react';
 
 interface VolunteerProps {
   language: 'en' | 'fr';
@@ -11,15 +11,25 @@ const Volunteer = ({ language }: VolunteerProps) => {
       organizations: [
         {
           name: 'Club Jeunes Ingénieures ISAMM',
-          role: 'Active Member',
-          description: 'Promoting women in engineering and technology through workshops and mentorship programs',
-          period: '2021 - Present'
+          role: 'Head of Business Development Department',
+          description: 'Responsible for promoting club activities, negotiating partnerships, and organizing events.',
+          period: '2020 - 2024',
+          image: '/assets/j2i.jpg',
+          achievements: [
+            'Organized 5 major events',
+            'Developed 3 strategic partnerships'
+          ]
         },
         {
           name: 'JCI Mornaguia',
-          role: 'Community Volunteer',
-          description: 'Participating in community development projects and youth empowerment initiatives',
-          period: '2022 - Present'
+          role: 'Active Member',
+          description: 'Contributing to community projects and initiatives, and participating in charity event organization.',
+          period: '2020 - 2021',
+          image: '/assets/jcim.png',
+          achievements: [
+            'Participated in 3 community projects',
+            'Supported charity event organization'
+          ]
         }
       ]
     },
@@ -28,15 +38,25 @@ const Volunteer = ({ language }: VolunteerProps) => {
       organizations: [
         {
           name: 'Club Jeunes Ingénieures ISAMM',
-          role: 'Membre Active',
-          description: 'Promotion des femmes dans l\'ingénierie et la technologie à travers des ateliers et programmes de mentorat',
-          period: '2021 - Présent'
+          role: 'Cheffe du département développement commercial',
+          description: 'Responsable de la promotion des activités du club, de la négociation de partenariats, et de l\'organisation d\'événements.',
+          period: '2020 - 2024',
+          image: '/assets/j2i.jpg',
+          achievements: [
+            'Organisation de 5 événements majeurs',
+            'Développement de 3 partenariats stratégiques'
+          ]
         },
         {
           name: 'JCI Mornaguia',
-          role: 'Bénévole Communautaire',
-          description: 'Participation aux projets de développement communautaire et initiatives d\'autonomisation des jeunes',
-          period: '2022 - Présent'
+          role: 'Membre actif',
+          description: 'Contribuant aux projets et initiatives communautaires, et participant à l\'organisation d\'événements caritatifs.',
+          period: '2020 - 2021',
+          image: '/assets/jcim.png',
+          achievements: [
+            'Participation à 3 projets communautaires',
+            'Support à l\'organisation d\'événements caritatifs'
+          ]
         }
       ]
     }
@@ -59,25 +79,64 @@ const Volunteer = ({ language }: VolunteerProps) => {
               className="group relative fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
+              <div className="relative h-full rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                  <img 
+                    src={org.image} 
+                    alt={org.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                </div>
+                
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
 
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center flex-shrink-0">
-                      {index === 0 ? <Users className="text-white" size={28} /> : <Heart className="text-white" size={28} />}
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">{org.name}</h3>
-                      <p className="text-purple-400 text-sm">{org.period}</p>
+                <div className="relative z-10 p-8">
+                  {/* Logo at top */}
+                  <div className="flex justify-center mb-6">
+                    <div className="w-24 h-24 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center p-3 overflow-hidden">
+                      <img 
+                        src={org.image} 
+                        alt={`${org.name} logo`}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          const parent = e.currentTarget.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center">${index === 0 ? '<svg class="text-white" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' : '<svg class="text-white" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'}</div>`;
+                          }
+                        }}
+                      />
                     </div>
                   </div>
 
-                  <h4 className="text-lg text-cyan-400 mb-4">{org.role}</h4>
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">{org.name}</h3>
+                    <div className="flex items-center justify-center gap-2 text-purple-400 text-sm mb-2">
+                      <Calendar size={16} />
+                      <span>{org.period}</span>
+                    </div>
+                    <h4 className="text-lg text-cyan-400 font-medium">{org.role}</h4>
+                  </div>
 
-                  <p className="text-white/70 leading-relaxed">
+                  <p className="text-white/70 leading-relaxed mb-6">
                     {org.description}
                   </p>
+
+                  {/* Achievements */}
+                  <div className="space-y-3">
+                    {org.achievements.map((achievement, idx) => (
+                      <div 
+                        key={idx}
+                        className="flex items-start gap-3 text-white/80 text-sm"
+                      >
+                        <Award size={16} className="text-cyan-400 flex-shrink-0 mt-0.5" />
+                        <span>{achievement}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
