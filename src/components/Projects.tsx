@@ -17,6 +17,7 @@ interface Project {
   challenge: string;
   solution: string;
   image?: string;
+  gallery?: string[]; 
   github?: string;
   demo?: string;
 }
@@ -30,28 +31,56 @@ const Projects = ({ language }: ProjectsProps) => {
       viewProject: 'View Project',
       projects: [
         {
-          
-            name: 'Merx',
-            description: 'Peer-to-peer marketplace mobile application',
-            fullDescription: 'Merx is an innovative mobile marketplace application that transforms digital exchanges between individuals in Tunisia. It combines cutting-edge technology with user-centric design to create a seamless trading experience.',
-            challenge: 'Create a comprehensive P2P marketplace platform that addresses gaps in existing solutions like Tayara and Facebook Marketplace.',
-            solution: 'Development of a mobile application with AI-powered features, microservices architecture, and integrated messaging system.',
-            technologies: ['React Native', 'Spring Boot', 'PostgreSQL', 'Firebase', 'FastAPI', 'Docker'],
-            color: 'from-indigo-500 to-purple-500',
-            image: '/assets/merx.png',
-            features: [
-              'AI-powered visual search: Search products using images',
-              'Intelligent recommendations: Personalized product suggestions using ML algorithms',
-              'Integrated messaging: Real-time chat between buyers and sellers',
-              'Payment integration: Secure payment processing with Stripe',
-              'User verification: SMS verification via Twilio',
-              'Microservices architecture: Scalable and modular backend',
-              'Image optimization: Cloud storage and optimization with Cloudinary',
-              
-            ],
-            role: 'Software Developer'
-          },
-          {
+          name: 'Merx',
+          description: 'Peer-to-peer marketplace mobile application',
+          fullDescription: 'Merx is an innovative mobile marketplace application that transforms digital exchanges between individuals in Tunisia. It combines cutting-edge technology with user-centric design to create a seamless trading experience.',
+          challenge: 'Create a comprehensive P2P marketplace platform that addresses gaps in existing solutions like Tayara and Facebook Marketplace.',
+          solution: 'Development of a mobile application with AI-powered features, microservices architecture, and integrated messaging system.',
+          technologies: ['React Native', 'Spring Boot', 'PostgreSQL', 'Firebase', 'FastAPI', 'Docker'],
+          color: 'from-indigo-500 to-purple-500',
+          image: '/assets/merx.png',
+          gallery: [
+            '/assets/merx/a1.png ',
+            '/assets/merx/a2.png',
+            '/assets/merx/a3.png',
+            '/assets/merx/a4.png',
+            '/assets/merx/b2.png',
+            '/assets/merx/b5.png',
+            '/assets/merx/b6.png',
+            '/assets/merx/b7.png',
+            '/assets/merx/c2.jpeg',
+            '/assets/merx/d2.jpeg',
+            '/assets/merx/d4.jpeg',
+            '/assets/merx/d5.jpeg',
+            '/assets/merx/d6.jpeg',
+            '/assets/merx/d7.jpeg',
+            '/assets/merx/d8.jpeg',
+
+
+          ],
+          features: [
+            'AI-powered visual search: Search products using images with intelligent recognition',
+            'Smart recommendations: ML-driven personalized product suggestions based on browsing history',
+            'Integrated messaging: Real-time chat between buyers and sellers',
+            'Push notifications: Firebase FCM for order updates and new listings',
+            'Multi-channel alerts: Email and SMS notifications for critical updates',
+            'Secure payments: Stripe integration with transaction history',
+            'Order tracking: Real-time status updates from listing to delivery',
+            'Product management: Complete CRUD operations for listings',
+            'Review system: 5-star ratings with moderation and reporting',
+            'JWT authentication: Secure session management with token-based auth',
+            'Advanced filters: Multi-parameter filtering by price, location, rating',
+            'Trending products: AI-identified popular items and price drops',
+            'Microservices architecture: Scalable Spring Boot backend with independent services',
+            'Image optimization: Cloudinary integration for fast image delivery',
+            'Cross-platform: React Native for iOS and Android',
+            'Containerized deployment: Docker for consistent environments',
+            'Admin dashboard: User management, product approval, and analytics',
+            'Report handling: Automated moderation and dispute resolution',
+          ],
+          role: 'Software Developer'
+        },
+        {
           name: 'ProConnect',
           description: 'Freelance platform connecting freelancers and clients',
           fullDescription: 'ProConnect is a modern freelance platform designed to connect freelancers with clients while ensuring secure transactions and seamless project management.',
@@ -60,12 +89,21 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
           color: 'from-blue-500 to-cyan-500',
           image: '/assets/proconnect.png',
+          gallery: [
+            '/assets/proconnect/c0.png',
+            '/assets/proconnect/cc1.png',
+            '/assets/proconnect/cc2.png',
+            '/assets/proconnect/cc3.png',
+            '/assets/proconnect/cc4.png',
+            '/assets/proconnect/cc5.png',
+            '/assets/proconnect/cc6.png',
+            '/assets/proconnect/cc7.png',
+          ],
           features: [
             'User management system with detailed profiles for Freelancers and Clients',
             'Advanced search with filters by skills, location, and hourly rate',
             'Project posting and offer management',
             'Ratings and reviews after project completion',
-            'Real-time notification system for projects and offers'
           ],
           role: 'Full Stack Developer'
         },
@@ -78,12 +116,19 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Dart', 'Flutter', 'Java', 'Spring Boot', 'MySQL'],
           color: 'from-purple-500 to-pink-500',
           image: '/assets/autify.png',
+          gallery: [
+            '/assets/autify/assurance.png',
+            '/assets/autify/a2.png',
+            '/assets/autify/a3.png',
+            '/assets/autify/a4.png',
+            '/assets/autify/a5.png',
+
+          ],
           features: [
             'Member management: Create and manage member profiles with registration and personal information',
             'Member history and tracking: Display of past and ongoing requests',
             'Claim management: Interface for users to create claims',
             'Request status tracking: Real-time tracking with automatic updates',
-            'Notifications: Email or SMS notifications for updates',
             'Vehicle condition tracking: Simulate vehicle condition and cost estimation',
             'Replacement car management: Manage replacement vehicle requests',
             'Reimbursements: Submit and track reimbursement requests'
@@ -99,6 +144,11 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Angular', 'Spring Boot', 'MySQL'],
           color: 'from-pink-500 to-rose-500',
           image: '/assets/novatechimg.png',
+          gallery: [
+            '/assets/novatech-1.png',
+            '/assets/novatech-2.png',
+            '/assets/novatech-3.png'
+          ],
           features: [
             'Administrator access: Add, edit, and delete departments and employees',
             'Request management: Process and validate requests with automatic document generation',
@@ -120,6 +170,15 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Dart', 'Flutter'],
           color: 'from-green-500 to-emerald-500',
           image: '/assets/repares.jpg',
+          gallery: [
+            '/assets/repares/r1.jpg',
+            '/assets/repares/r2.jpg',
+            '/assets/repares/r3.jpg',
+            '/assets/repares/r4.jpg',
+            '/assets/repares/r5.jpg',
+          
+
+          ],
           features: [
             'User management: Profiles for restaurants, supermarkets, consumers, and waste managers',
             'Low-cost meal sales: Platform to sell prepared meals using soon-to-expire products',
@@ -138,6 +197,20 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Dart', 'Flutter'],
           color: 'from-amber-500 to-orange-500',
           image: '/assets/magon.png',
+          gallery: [
+            '/assets/magon/1.png',
+            '/assets/magon/2.png',
+            '/assets/magon/3.png',
+            '/assets/magon/4.png',
+            '/assets/magon/5.png',
+            '/assets/magon/6.png',
+            '/assets/magon/8.png',
+            '/assets/magon/9.png',
+            '/assets/magon/10.png',
+            '/assets/magon/11.png',
+            '/assets/magon/12.png',
+            
+          ],
           features: [
             'User management: Multi-level access control (Administrator, Owner, and Associate)',
             'Cattle tracking: Real-time traceability and monitoring',
@@ -167,17 +240,45 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['React Native', 'Spring Boot', 'PostgreSQL', 'Firebase', 'FastAPI', 'Docker'],
           color: 'from-indigo-500 to-purple-500',
           image: '/assets/merx.png',
-          features: [
-            'Recherche visuelle IA : Rechercher des produits via images',
-            'Recommandations intelligentes : Suggestions personnalisées utilisant ML',
-            'Messagerie intégrée : Chat en temps réel entre acheteurs et vendeurs',
-            'Intégration paiement : Traitement sécurisé des paiements avec Stripe',
-            'Vérification utilisateur : Vérification SMS via Twilio',
-            'Architecture microservices : Backend scalable et modulaire',
-            'Optimisation d\'images : Stockage cloud et optimisation avec Cloudinary',
-            'Système d\'enchères : Support pour enchères sur produits'
+          gallery: [
+        '/assets/merx/a1.png ',
+            '/assets/merx/a2.png',
+            '/assets/merx/a3.png',
+            '/assets/merx/a4.png',
+            '/assets/merx/b2.png',
+            '/assets/merx/b5.png',
+            '/assets/merx/b6.png',
+            '/assets/merx/b7.png',
+            '/assets/merx/c2.jpeg',
+            '/assets/merx/d2.jpeg',
+            '/assets/merx/d4.jpeg',
+            '/assets/merx/d5.jpeg',
+            '/assets/merx/d6.jpeg',
+            '/assets/merx/d7.jpeg',
+            '/assets/merx/d8.jpeg',
+          
           ],
-          role: 'Développeuse Full Stack'
+          features: [
+            'Recherche visuelle IA : Rechercher des produits via images avec reconnaissance intelligente',
+            'Recommandations intelligentes : Suggestions personnalisées basées sur l\'historique de navigation',
+            'Messagerie intégrée : Chat en temps réel entre acheteurs et vendeurs',
+            'Notifications push : Firebase FCM pour mises à jour de commandes et nouvelles annonces',
+            'Alertes multi-canaux : Notifications email et SMS pour mises à jour critiques',
+            'Paiements sécurisés : Intégration Stripe avec historique des transactions',
+            'Suivi de commande : Mises à jour en temps réel de l\'annonce à la livraison',
+            'Gestion de produits : Opérations CRUD complètes pour les annonces',
+            'Système d\'évaluation : Notes 5 étoiles avec modération et signalement',
+            'Authentification JWT : Gestion de session sécurisée avec authentification par token',
+            'Filtres avancés : Filtrage multi-paramètres par prix, localisation, note',
+            'Produits tendances : Articles populaires et baisses de prix identifiés par IA',
+            'Architecture microservices : Backend Spring Boot scalable avec services indépendants',
+            'Optimisation d\'images : Intégration Cloudinary pour livraison rapide des images',
+            'Cross-platform : React Native pour iOS et Android',
+            'Déploiement conteneurisé : Docker pour environnements cohérents',
+            'Tableau de bord admin : Gestion utilisateurs, approbation produits et analytics',
+            'Gestion des signalements : Modération automatisée et résolution des litiges',
+          ],
+          role: 'Développeuse Logiciel'
         },
         {
           name: 'ProConnect',
@@ -188,12 +289,21 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
           color: 'from-blue-500 to-cyan-500',
           image: '/assets/proconnect.png',
+          gallery: [
+            '/assets/proconnect/c0.png',
+            '/assets/proconnect/cc1.png',
+            '/assets/proconnect/cc2.png',
+            '/assets/proconnect/cc3.png',
+            '/assets/proconnect/cc4.png',
+            '/assets/proconnect/cc5.png',
+            '/assets/proconnect/cc6.png',
+            '/assets/proconnect/cc7.png',
+          ],
           features: [
             'Système de gestion d\'utilisateurs avec profils détaillés pour Freelancers et Clients',
             'Recherche avancée avec filtres par compétences, localisation et taux horaire',
             'Publication de projets et gestion des offres',
             'Notes et avis après finalisation des projets',
-            'Système de notification en temps réel pour projets et offres'
           ],
           role: 'Développeuse Full Stack'
         },
@@ -206,12 +316,18 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Dart', 'Flutter', 'Java', 'Spring Boot', 'MySQL'],
           color: 'from-purple-500 to-pink-500',
           image: '/assets/autify.png',
+          gallery: [
+            '/assets/autify/assurance.png',
+            '/assets/autify/a2.png',
+            '/assets/autify/a3.png',
+            '/assets/autify/a4.png',
+            '/assets/autify/a5.png',
+          ],
           features: [
             'Gestion des membres : Créer et gérer les profils avec inscription et informations personnelles',
             'Historique et suivi des membres : Affichage des demandes passées et en cours',
             'Gestion des sinistres : Interface pour créer des réclamations',
             'Suivi du statut des demandes : Suivi en temps réel avec mises à jour automatiques',
-            'Notifications : Notifications email ou SMS pour les mises à jour',
             'Suivi de l\'état du véhicule : Simuler l\'état du véhicule et estimation des coûts',
             'Gestion des véhicules de remplacement : Gérer les demandes de véhicules',
             'Remboursements : Soumettre et suivre les demandes de remboursement'
@@ -227,6 +343,11 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Angular', 'Spring Boot', 'MySQL'],
           color: 'from-pink-500 to-rose-500',
           image: '/assets/novatechimg.png',
+          gallery: [
+            '/assets/novatech-1.png',
+            '/assets/novatech-2.png',
+            '/assets/novatech-3.png'
+          ],
           features: [
             'Accès administrateur : Ajouter, modifier et supprimer départements et employés',
             'Gestion des demandes : Traiter et valider les demandes avec génération automatique de documents',
@@ -248,6 +369,13 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Dart', 'Flutter'],
           color: 'from-green-500 to-emerald-500',
           image: '/assets/repares.jpg',
+          gallery: [
+            '/assets/repares/r1.jpg',
+            '/assets/repares/r2.jpg',
+            '/assets/repares/r3.jpg',
+            '/assets/repares/r4.jpg',
+            '/assets/repares/r5.jpg',
+          ],
           features: [
             'Gestion des utilisateurs : Profils pour restaurants, supermarchés, consommateurs et gestionnaires de déchets',
             'Vente de repas à bas prix : Plateforme pour vendre repas préparés avec produits bientôt périmés',
@@ -266,6 +394,19 @@ const Projects = ({ language }: ProjectsProps) => {
           technologies: ['Dart', 'Flutter'],
           color: 'from-amber-500 to-orange-500',
           image: '/assets/magon.png',
+          gallery: [
+            '/assets/magon/1.png',
+            '/assets/magon/2.png',
+            '/assets/magon/3.png',
+            '/assets/magon/4.png',
+            '/assets/magon/5.png',
+            '/assets/magon/6.png',
+            '/assets/magon/8.png',
+            '/assets/magon/9.png',
+            '/assets/magon/10.png',
+            '/assets/magon/11.png',
+            '/assets/magon/12.png',
+          ],
           features: [
             'Gestion des utilisateurs : Contrôle d\'accès multi-niveaux (Administrateur, Propriétaire et Associé)',
             'Suivi du bétail : Traçabilité et surveillance en temps réel',

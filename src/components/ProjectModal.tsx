@@ -1,4 +1,5 @@
-import { X, ExternalLink, Github, Users } from 'lucide-react';
+import { useState } from 'react';
+import { X, ExternalLink, Github, Users, ChevronLeft, ChevronRight, Image } from 'lucide-react';
 
 interface Project {
   name: string;
@@ -11,6 +12,7 @@ interface Project {
   challenge: string;
   solution: string;
   image?: string;
+  gallery?: string[];
   github?: string;
   demo?: string;
 }
@@ -22,6 +24,9 @@ interface ProjectModalProps {
 }
 
 const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageError, setImageError] = useState<Set<number>>(new Set());
+
   if (!project) return null;
 
   const content = {
@@ -33,7 +38,9 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
       solution: 'Our Solution',
       viewDemo: 'View Demo',
       viewCode: 'View Code',
-      close: 'Close'
+      close: 'Close',
+      gallery: 'Project Gallery',
+      imageOf: 'Image {current} of {total}'
     },
     fr: {
       features: 'Fonctionnalités Clés',
@@ -43,11 +50,28 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
       solution: 'Notre Solution',
       viewDemo: 'Voir Démo',
       viewCode: 'Voir Code',
-      close: 'Fermer'
+      close: 'Fermer',
+      gallery: 'Galerie du Projet',
+      imageOf: 'Image {current} sur {total}'
     }
   };
 
   const t = content[language];
+
+  const images = project.gallery || [];
+  const hasGallery = images.length > 0;
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const handleImageError = (index: number) => {
+    setImageError(prev => new Set(prev).add(index));
+  };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in">
@@ -56,7 +80,7 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
         onClick={onClose}
       ></div>
 
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-gradient-to-br from-[#0a0a1a] to-[#1a0a2e] border border-purple-500/30 shadow-2xl shadow-purple-500/20 animate-scale-in">
+      <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl bg-gradient-to-br from-[#0a0a1a] to-[#1a0a2e] border border-purple-500/30 shadow-2xl shadow-purple-500/20 animate-scale-in">
         <button
           onClick={onClose}
           className="absolute top-6 right-6 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
@@ -89,6 +113,94 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
               {project.fullDescription}
             </p>
           </div>
+
+          {/* Gallery Section */}
+          {hasGallery && (
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <Image className="text-cyan-400" size={24} />
+                <h3 className="text-2xl font-bold text-white">{t.gallery}</h3>
+              </div>
+              
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10">
+                {/* Main Image Display */}
+                <div className="relative aspect-video bg-gray-900/50">
+                  {!imageError.has(currentImageIndex) ? (
+                    <img
+                      src={images[currentImageIndex]}
+                      alt={`${project.name} - Screenshot ${currentImageIndex + 1}`}
+                      className="w-full h-full object-contain"
+                      onError={() => handleImageError(currentImageIndex)}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-center text-white/50">
+                        <Image size={48} className="mx-auto mb-2" />
+                        <p>Image unavailable</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Navigation Buttons */}
+                  {images.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 border border-white/20 text-white transition-all hover:scale-110"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 border border-white/20 text-white transition-all hover:scale-110"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </>
+                  )}
+
+                  {/* Image Counter */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/70 border border-white/20 text-white text-sm font-medium">
+                    {t.imageOf
+                      .replace('{current}', String(currentImageIndex + 1))
+                      .replace('{total}', String(images.length))}
+                  </div>
+                </div>
+
+                {/* Thumbnail Strip */}
+                {images.length > 1 && (
+                  <div className="p-4 bg-gray-900/30 border-t border-white/10">
+                    <div className="flex gap-3 overflow-x-auto pb-2">
+                      {images.map((img, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                            currentImageIndex === index
+                              ? 'border-purple-500 scale-105 shadow-lg shadow-purple-500/50'
+                              : 'border-white/20 hover:border-white/40 hover:scale-105'
+                          }`}
+                        >
+                          {!imageError.has(index) ? (
+                            <img
+                              src={img}
+                              alt={`Thumbnail ${index + 1}`}
+                              className="w-full h-full object-cover"
+                              onError={() => handleImageError(index)}
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                              <Image size={16} className="text-white/30" />
+                            </div>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10">
