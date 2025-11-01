@@ -15,12 +15,14 @@ const TypewriterEffect = ({ language }: { language: 'en' | 'fr' }) => {
     en: [
       'Software Developer',
       'Mobile Developer', 
-      'Web Developer'
+      'Web Developer',
+      'Full Stack Developer'
     ],
     fr: [
       'Développeuse Logiciel',
       'Développeuse Mobile',
-      'Développeuse Web'
+      'Développeuse Web',
+      'Développeuse Full Stack'
     ]
   };
 
@@ -36,7 +38,6 @@ const TypewriterEffect = ({ language }: { language: 'en' | 'fr' }) => {
           setCurrentText(currentTitle.substring(0, currentIndex + 1));
           setCurrentIndex(currentIndex + 1);
         } else {
-          // Finished typing, wait then start deleting
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
@@ -45,12 +46,11 @@ const TypewriterEffect = ({ language }: { language: 'en' | 'fr' }) => {
           setCurrentText(currentTitle.substring(0, currentIndex - 1));
           setCurrentIndex(currentIndex - 1);
         } else {
-          // Finished deleting, move to next title
           setIsDeleting(false);
           setCurrentTitleIndex((currentTitleIndex + 1) % titlesList.length);
         }
       }
-    }, isDeleting ? 50 : 100); // Faster deletion, slower typing
+    }, isDeleting ? 50 : 100); 
 
     return () => clearTimeout(timeout);
   }, [currentIndex, isDeleting, currentTitleIndex, titlesList]);
@@ -89,10 +89,9 @@ const Hero = ({ language }: HeroProps) => {
   };
 
   const downloadCV = () => {
-    // Create a link element to trigger download
     const link = document.createElement('a');
-    link.href = '/assets/CV_Eya_Naffeti.pdf'; // Path to your CV file
-    link.download = 'CV_Eya_Naffeti.pdf'; // Name of the downloaded file
+    link.href = '/assets/CV-Eya-Naffeti.pdf'; 
+    link.download = 'CV_Eya_Naffeti.pdf'; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

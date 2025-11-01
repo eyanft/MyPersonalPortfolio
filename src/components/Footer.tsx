@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Instagram, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 
 interface FooterProps {
   language: 'en' | 'fr';

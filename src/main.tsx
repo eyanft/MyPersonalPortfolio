@@ -7,8 +7,6 @@ import './index.css';
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   document.documentElement.classList.add(savedTheme);
-} else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-  document.documentElement.classList.add('light');
 } else {
   document.documentElement.classList.add('dark');
 }

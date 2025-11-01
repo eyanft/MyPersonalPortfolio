@@ -1,4 +1,4 @@
-import { Heart, Users, Award, Calendar } from 'lucide-react';
+import { Award, Calendar } from 'lucide-react';
 
 interface VolunteerProps {
   language: 'en' | 'fr';
