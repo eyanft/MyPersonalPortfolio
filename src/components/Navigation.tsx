@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Home, User, Briefcase, Lightbulb, FolderOpen, Mail, Globe, Sun, Moon } from 'lucide-react';
+import { Home, User, Briefcase, Lightbulb, FolderOpen, Mail, Globe, Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface NavigationProps {
@@ -9,6 +9,7 @@ interface NavigationProps {
 
 const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   const content = {
@@ -37,6 +38,8 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
     if (element) {
       // Set active section immediately for better UX
       setActiveSection(id);
+      // Close mobile menu if open
+      setMobileMenuOpen(false);
       // Scroll smoothly to the section
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -50,6 +53,30 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
     { id: 'projects', icon: FolderOpen, label: t.projects },
     { id: 'contact', icon: Mail, label: t.contact },
   ];
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
+  // Close mobile menu on scroll
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleScroll = () => {
+      setMobileMenuOpen(false);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [mobileMenuOpen]);
 
   // Sync active nav item with visible section
   useEffect(() => {
@@ -190,47 +217,88 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
         </div>
       </nav>
 
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 lg:hidden">
-        <div className="flex items-center gap-2 p-3 rounded-full bg-white/90 dark:bg-[#0a0a1a]/90 backdrop-blur-md border border-purple-500/20 dark:border-purple-500/20 light:border-purple-400/30 shadow-2xl shadow-purple-500/10 dark:shadow-purple-500/10 light:shadow-purple-400/5">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="relative p-3 rounded-full transition-all duration-300"
-              >
-                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50'
-                    : 'bg-transparent'
-                }`}></div>
-                <Icon
-                  className={`relative z-10 transition-colors ${
-                    activeSection === item.id ? 'text-white dark:text-white light:text-gray-900' : 'text-gray-700 dark:text-white/60 light:text-gray-600'
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="fixed top-6 right-6 z-50 lg:hidden p-3 rounded-full bg-white/90 dark:bg-[#0a0a1a]/90 backdrop-blur-md border border-purple-500/20 dark:border-purple-500/20 shadow-2xl shadow-purple-500/10 dark:shadow-purple-500/10 transition-all duration-300 hover:scale-110"
+        aria-label="Menu"
+      >
+        {mobileMenuOpen ? (
+          <X className="text-gray-700 dark:text-white" size={24} />
+        ) : (
+          <Menu className="text-gray-700 dark:text-white" size={24} />
+        )}
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu Drawer */}
+      <nav
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="h-full bg-white/95 dark:bg-[#0a0a1a]/95 backdrop-blur-md border-l border-purple-500/20 dark:border-purple-500/20 shadow-2xl overflow-y-auto">
+          <div className="p-6 pt-20 space-y-4">
+            {/* Navigation Items */}
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
+                    activeSection === item.id
+                      ? 'bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50 text-white'
+                      : 'bg-gray-100/50 dark:bg-white/5 text-gray-700 dark:text-white/60 hover:bg-gray-200 dark:hover:bg-white/10'
                   }`}
-                  size={18}
-                />
-              </button>
-            );
-          })}
-          <div className="w-px h-8 bg-gray-300 dark:bg-white/10 light:bg-gray-300 mx-1"></div>
-          <button
-            onClick={toggleTheme}
-            className="relative p-3 rounded-full transition-all duration-300"
-          >
-            {theme === 'dark' ? (
-              <Sun className="text-gray-700 dark:text-white/60" size={18} />
-            ) : (
-              <Moon className="text-gray-700 dark:text-white/60" size={18} />
-            )}
-          </button>
-          <button
-            onClick={toggleLanguage}
-            className="relative p-3 rounded-full transition-all duration-300"
-          >
-            <Globe className="text-gray-700 dark:text-white/60" size={18} />
-          </button>
+                >
+                  <Icon
+                    className={`transition-colors ${
+                      activeSection === item.id ? 'text-white' : 'text-gray-700 dark:text-white/60'
+                    }`}
+                    size={22}
+                  />
+                  <span className="text-base font-medium">{item.label}</span>
+                </button>
+              );
+            })}
+
+            <div className="h-px bg-gray-300 dark:bg-white/10 my-6"></div>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="w-full flex items-center gap-4 p-4 rounded-xl bg-gray-100/50 dark:bg-white/5 text-gray-700 dark:text-white/60 hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300"
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Sun className="text-gray-700 dark:text-white/60" size={22} />
+                  <span className="text-base font-medium">{language === 'en' ? 'Light Mode' : 'Mode Clair'}</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="text-gray-700 dark:text-white/60" size={22} />
+                  <span className="text-base font-medium">{language === 'en' ? 'Dark Mode' : 'Mode Sombre'}</span>
+                </>
+              )}
+            </button>
+
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="w-full flex items-center gap-4 p-4 rounded-xl bg-gray-100/50 dark:bg-white/5 text-gray-700 dark:text-white/60 hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300"
+            >
+              <Globe className="text-gray-700 dark:text-white/60" size={22} />
+              <span className="text-base font-medium">{language === 'en' ? 'Français' : 'English'}</span>
+            </button>
+          </div>
         </div>
       </nav>
     </>
