@@ -145,7 +145,7 @@ const Projects = ({ language }: ProjectsProps) => {
           color: 'from-pink-500 to-rose-500',
           image: '/assets/novatechimg.png',
           gallery: [
-            '/assets/novatech-1.png',
+            '/assets/novatech/n1.png',
             '/assets/novatech-2.png',
             '/assets/novatech-3.png'
           ],
@@ -344,7 +344,7 @@ const Projects = ({ language }: ProjectsProps) => {
           color: 'from-pink-500 to-rose-500',
           image: '/assets/novatechimg.png',
           gallery: [
-            '/assets/novatech-1.png',
+            '/assets/novatech/n1.png',
             '/assets/novatech-2.png',
             '/assets/novatech-3.png'
           ],

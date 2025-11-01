@@ -32,8 +32,12 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(id);
+    if (element) {
+      // Set active section immediately for better UX
+      setActiveSection(id);
+      // Scroll smoothly to the section
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const navItems = [
@@ -54,24 +58,69 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
 
     if (elements.length === 0) return;
 
+    const determineActiveSection = () => {
+      // Find the section closest to the top of the viewport (with offset)
+      const viewportOffset = window.innerHeight * 0.3; // 30% from top
+      let activeId = 'home';
+      let minDistance = Infinity;
+
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const distance = Math.abs(rect.top - viewportOffset);
+        
+        // If section is in viewport and closer to target position
+        if (rect.top <= viewportOffset && rect.bottom >= viewportOffset) {
+          if (distance < minDistance) {
+            minDistance = distance;
+            activeId = el.id;
+          }
+        }
+        // If no section is at target position, use the one closest to top
+        else if (rect.top >= 0 && rect.top < minDistance) {
+          minDistance = rect.top;
+          activeId = el.id;
+        }
+      });
+
+      setActiveSection(activeId);
+    };
+
+    // Initial check
+    determineActiveSection();
+
+    // Use IntersectionObserver for better performance
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        // Determine which section should be active based on viewport position
+        determineActiveSection();
       },
       {
-        // Trigger when the section heading area enters mid viewport
         root: null,
-        rootMargin: '0px 0px -50% 0px',
-        threshold: 0.35,
+        rootMargin: '-20% 0px -50% 0px', // Trigger when section is in upper portion of viewport
+        threshold: [0, 0.1, 0.5, 1.0],
       }
     );
 
     elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    // Also listen to scroll events for more accurate detection
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          determineActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (

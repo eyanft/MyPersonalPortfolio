@@ -8,7 +8,7 @@ const About = ({ language }: AboutProps) => {
   const content = {
     en: {
       title: 'About Me',
-      intro: "Consultant and Developer in Web and Mobile Technologies, delivering innovative digital solutions and optimized user experiences.",
+      intro: "A graduate with a professional Master's degree in Media Engineering, I am a full-stack developer passionate about creating web and mobile applications that combine both substance and style. Thanks to this training and my internship experiences, I have acquired solid expertise in full-stack development, microservices architecture, and AI integration. Motivated by ambitious challenges, I seek to contribute my meticulous approach and curiosity to an innovative project.",
       educationTitle: 'Education',
       education: [
         {
@@ -33,7 +33,7 @@ const About = ({ language }: AboutProps) => {
     },
     fr: {
       title: 'À Propos',
-      intro: "Consultante et Développeuse en technologies Web et Mobile, fournissant des solutions digitales innovantes et des expériences utilisateurs optimisées.",
+      intro: "Diplômée d'un Master professionnel en Ingénierie des Médias, je suis développeuse full-stack passionnée par la création d'applications web et mobiles alliant le fond et la forme. Forte de cette formation et de mes expériences en stage, j'ai acquis une solide expertise en développement full stack, architecture microservices et intégration d'IA. Motivée par les défis ambitieux, je cherche à apporter ma rigueur et ma curiosité à un projet innovant.",
       educationTitle: 'Formation',
       education: [
         {
@@ -69,56 +69,58 @@ const About = ({ language }: AboutProps) => {
         <div className="h-1 w-24 mx-auto bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-full mb-16"></div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative fade-in">
-            <div className="relative w-full aspect-square max-w-md mx-auto rounded-3xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 p-4 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl"></div>
+          <div className="space-y-8">
+            <div className="relative fade-in">
+              <div className="relative w-full aspect-square max-w-md mx-auto rounded-3xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 p-4 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl"></div>
 
-              <div className="relative z-8 w-full h-full rounded-2xl overflow-hidden border-4 border-gradient-to-br from-pink-400 via-purple-500 to-cyan-400">
-                <img
-                  src="/assets/WhatsApp Image 2025-09-22 at 22.08.42.jpeg"
-                  alt="Eya Naffeti"
-                  className="w-full h-full object-cover object-[50%_44%]"
-                />
+                <div className="relative z-8 w-full h-full rounded-2xl overflow-hidden border-4 border-gradient-to-br from-pink-400 via-purple-500 to-cyan-400">
+                  <img
+                    src="/assets/WhatsApp Image 2025-09-22 at 22.08.42.jpeg"
+                    alt="Eya Naffeti"
+                    className="w-full h-full object-cover object-[50%_44%]"
+                  />
+                </div>
+
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-3xl opacity-60"></div>
+                <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full blur-3xl opacity-60"></div>
               </div>
+            </div>
 
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-3xl opacity-60"></div>
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full blur-3xl opacity-60"></div>
+            <div className="fade-in">
+              <p className="text-xl text-white/80 leading-relaxed text-justify">
+                {t.intro}
+              </p>
             </div>
           </div>
 
-          <div className="space-y-8 fade-in">
-            <p className="text-xl text-white/80 leading-relaxed">
-              {t.intro}
-            </p>
+          <div className="fade-in">
+            <h3 className="text-2xl font-semibold text-white mb-8 flex items-center gap-3">
+              <GraduationCap className="text-purple-400 flex-shrink-0" size={28} />
+              <span>{t.educationTitle}</span>
+            </h3>
 
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-                <GraduationCap className="text-purple-400" size={28} />
-                {t.educationTitle}
-              </h3>
-
-              <div className="space-y-6">
-                {t.education.map((edu, index) => (
-                  <div
-                    key={index}
-                    className="group relative p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="mt-1">
-                        <Calendar className="text-cyan-400" size={20} />
-                      </div>
-                      <div>
-                        <div className="text-sm text-cyan-400 mb-2">{edu.period}</div>
-                        <h4 className="text-lg font-semibold text-white mb-1">{edu.degree}</h4>
-                        <p className="text-white/60 text-sm mb-1">{edu.school}</p>
-                        {edu.specialization && (
-                          <p className="text-purple-400 text-sm">{edu.specialization}</p>
-                        )}
-                      </div>
+            <div className="space-y-5">
+              {t.education.map((edu, index) => (
+                <div
+                  key={index}
+                  className="group relative p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 flex-shrink-0">
+                      <Calendar className="text-cyan-400" size={20} />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm text-cyan-400 mb-2 font-medium">{edu.period}</div>
+                      <h4 className="text-lg font-semibold text-white mb-1.5">{edu.degree}</h4>
+                      <p className="text-white/60 text-sm mb-1.5 leading-relaxed">{edu.school}</p>
+                      {edu.specialization && (
+                        <p className="text-purple-400 text-sm font-medium">{edu.specialization}</p>
+                      )}
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

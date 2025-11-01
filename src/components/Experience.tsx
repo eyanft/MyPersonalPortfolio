@@ -78,7 +78,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Poly Oil',
-          logo: '/assets/logo/polyoil.png',
+          logo: '/assets/logo/po.jpg',
           role: 'Stagiaire Développeuse Web',
           period: 'Juil 2024 - Août 2024',
           location: 'Manouba, Tunisie',
@@ -96,7 +96,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Tsunami IT',
-          logo: '/assets/logo/tsunami.png',
+          logo: '/assets/logo/tsunamiit.png',
           role: 'Stage de fin d’études – Développeuse Mobile',
           period: 'Fév 2023 - Mai 2023',
           location: 'Tunis, Tunisie',
