@@ -23,7 +23,6 @@ interface ThemeProviderProps {
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Check localStorage first, then system preference
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     if (savedTheme) return savedTheme;
     
@@ -35,7 +34,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   });
 
   useEffect(() => {
-    // Update document class and save to localStorage
     document.documentElement.classList.remove('dark', 'light');
     document.documentElement.classList.add(theme);
     localStorage.setItem('theme', theme);
