@@ -90,7 +90,7 @@ const Hero = ({ language }: HeroProps) => {
 
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/assets/CV-Eya-Naffeti.pdf'; 
+    link.href = `${import.meta.env.BASE_URL}assets/CV-Eya-Naffeti.pdf`; 
     link.download = 'CV_Eya_Naffeti.pdf'; 
     document.body.appendChild(link);
     link.click();

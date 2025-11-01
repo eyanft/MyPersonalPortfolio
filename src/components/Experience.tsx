@@ -10,7 +10,7 @@ const Experience = ({ language }: ExperienceProps) => {
       experiences: [
         {
           company: 'WEVIOO',
-          logo: '/assets/logo/wevioo.png',
+          logo: `${import.meta.env.BASE_URL}assets/logo/wevioo.png`,
           role: 'End of Studies Internship',
           period: 'Feb 2025 - Jul 2025',
           location: 'Ariana, Tunisia',
@@ -28,7 +28,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Poly Oil',
-          logo: '/assets/logo/po.jpg',
+          logo: `${import.meta.env.BASE_URL}assets/logo/po.jpg`,
           role: 'Web Developer Intern',
           period: 'Jul 2024 - Aug 2024',
           location: 'Manouba, Tunisia',
@@ -37,7 +37,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Medianet',
-          logo: '/assets/logo/medianet.png',
+          logo: `${import.meta.env.BASE_URL}assets/logo/medianet.png`,
           role: 'Initiation Intern',
           period: 'Feb 2024 - May 2024',
           location: 'Ariana, Tunisia',
@@ -46,7 +46,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Tsunami IT',
-          logo: '/assets/logo/tsunamiit.png',
+          logo: `${import.meta.env.BASE_URL}assets/logo/tsunamiit.png`,
           role: 'End of Studies Internship',
           period: 'Feb 2023 - May 2023',
           location: 'Tunis, Tunisia',
@@ -60,7 +60,7 @@ const Experience = ({ language }: ExperienceProps) => {
       experiences: [
         {
           company: 'WEVIOO',
-          logo: '/assets/logo/wevioo.png',
+          logo: `${import.meta.env.BASE_URL}assets/logo/wevioo.png`,
           role: 'Développeuse Logiciel – Stage de fin d’études',
           period: 'Fév 2025 - Juil 2025',
           location: 'Ariana, Tunis, Tunisie',
@@ -78,7 +78,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Poly Oil',
-          logo: '/assets/logo/po.jpg',
+          logo: `${import.meta.env.BASE_URL}assets/logo/po.jpg`,
           role: 'Stagiaire Développeuse Web',
           period: 'Juil 2024 - Août 2024',
           location: 'Manouba, Tunisie',
@@ -87,7 +87,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Medianet',
-          logo: '/assets/logo/medianet.png',
+          logo: `${import.meta.env.BASE_URL}assets/logo/medianet.png`,
           role: 'Stage d’initiation',
           period: 'Fév 2024 - Mai 2024',
           location: 'Ariana, Tunisie',
@@ -96,7 +96,7 @@ const Experience = ({ language }: ExperienceProps) => {
         },
         {
           company: 'Tsunami IT',
-          logo: '/assets/logo/tsunamiit.png',
+          logo: `${import.meta.env.BASE_URL}assets/logo/tsunamiit.png`,
           role: 'Stage de fin d’études – Développeuse Mobile',
           period: 'Fév 2023 - Mai 2023',
           location: 'Tunis, Tunisie',

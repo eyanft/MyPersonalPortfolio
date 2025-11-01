@@ -76,7 +76,7 @@ const About = ({ language }: AboutProps) => {
 
                 <div className="relative z-8 w-full h-full rounded-2xl overflow-hidden border-4 border-gradient-to-br from-pink-400 via-purple-500 to-cyan-400">
                   <img
-                    src="/assets/WhatsApp Image 2025-09-22 at 22.08.42.jpeg"
+                    src={`${import.meta.env.BASE_URL}assets/WhatsApp Image 2025-09-22 at 22.08.42.jpeg`}
                     alt="Eya Naffeti"
                     className="w-full h-full object-cover object-[50%_44%]"
                   />

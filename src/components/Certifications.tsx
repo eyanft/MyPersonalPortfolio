@@ -13,25 +13,25 @@ const Certifications = ({ language }: CertificationsProps) => {
           name: 'Git, Github, Gitlab',
           provider: 'Udemy',
           date: '2024',
-          image: '/assets/GIT, GitLab, GitHub Fundamentals for Software Developers.jpg'
+          image: `${import.meta.env.BASE_URL}assets/GIT, GitLab, GitHub Fundamentals for Software Developers.jpg`
         },
         {
           name: 'Introduction to MongoDB',
           provider: 'MongoDB',
           date: '2024',
-          image: '/assets/certifications/mongodb.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/mongodb.png`
         },
         {
           name: 'Data Science',
           provider: 'Nvidia',
           date: '2024',
-          image: '/assets/certifications/nvidia.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/nvidia.png`
         },
         {
           name: 'SEO',
           provider: 'Hubspot',
           date: '2024',
-          image: '/assets/certifications/hubspot.jpg'
+          image: `${import.meta.env.BASE_URL}assets/certifications/hubspot.jpg`
         },
         {
           name: 'Flutter',
@@ -43,13 +43,13 @@ const Certifications = ({ language }: CertificationsProps) => {
           name: 'React Native',
           provider: 'Udemy',
           date: '2025',
-          image: '/assets/certifications/reactnative.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/reactnative.png`
         },
         {
           name: 'UX/UI Design',
           provider: 'Formalab',
           date: '2022',
-          image: '/assets/certifications/uxuiformation.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/uxuiformation.png`
         }
       ]
     },
@@ -62,25 +62,25 @@ const Certifications = ({ language }: CertificationsProps) => {
           name: 'Git, Github, Gitlab',
           provider: 'Udemy',
           date: '2024',
-          image: '/assets/certifications/git.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/git.png`
         },
         {
           name: 'Introduction à MongoDB',
           provider: 'MongoDB',
           date: '2024',
-          image: '/assets/certifications/mongodb.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/mongodb.png`
         },
         {
           name: 'Science des données',
           provider: 'Nvidia',
           date: '2024',
-          image: '/assets/certifications/nvidia.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/nvidia.png`
         },
         {
           name: 'SEO',
           provider: 'Hubspot',
           date: '2024',
-          image: '/assets/certifications/hubspot.jpg'
+          image: `${import.meta.env.BASE_URL}assets/certifications/hubspot.jpg`
         },
         {
           name: 'Flutter',
@@ -92,13 +92,13 @@ const Certifications = ({ language }: CertificationsProps) => {
           name: 'React Native',
           provider: 'Udemy',
           date: '2025',
-          image: '/assets/certifications/reactnative.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/reactnative.png`
         },
         {
           name: 'UX/UI Design',
           provider: 'Formalab',
           date: '2022',
-          image: '/assets/certifications/uxuiformation.png'
+          image: `${import.meta.env.BASE_URL}assets/certifications/uxuiformation.png`
         }
       ]
     }

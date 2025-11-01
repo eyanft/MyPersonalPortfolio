@@ -14,7 +14,7 @@ const Volunteer = ({ language }: VolunteerProps) => {
           role: 'Head of Business Development Department',
           description: 'Responsible for promoting club activities, negotiating partnerships, and organizing events.',
           period: '2020 - 2024',
-          image: '/assets/j2i.jpg',
+          image: `${import.meta.env.BASE_URL}assets/j2i.jpg`,
           achievements: [
             'Organized 5 major events',
             'Developed 3 strategic partnerships'
@@ -25,7 +25,7 @@ const Volunteer = ({ language }: VolunteerProps) => {
           role: 'Active Member',
           description: 'Contributing to community projects and initiatives, and participating in charity event organization.',
           period: '2020 - 2021',
-          image: '/assets/jcim.png',
+          image: `${import.meta.env.BASE_URL}assets/jcim.png`,
           achievements: [
             'Participated in 3 community projects',
             'Supported charity event organization'
@@ -41,7 +41,7 @@ const Volunteer = ({ language }: VolunteerProps) => {
           role: 'Cheffe du département développement commercial',
           description: 'Responsable de la promotion des activités du club, de la négociation de partenariats, et de l\'organisation d\'événements.',
           period: '2020 - 2024',
-          image: '/assets/j2i.jpg',
+          image: `${import.meta.env.BASE_URL}assets/j2i.jpg`,
           achievements: [
             'Organisation de 5 événements majeurs',
             'Développement de 3 partenariats stratégiques'
@@ -52,7 +52,7 @@ const Volunteer = ({ language }: VolunteerProps) => {
           role: 'Membre actif',
           description: 'Contribuant aux projets et initiatives communautaires, et participant à l\'organisation d\'événements caritatifs.',
           period: '2020 - 2021',
-          image: '/assets/jcim.png',
+          image: `${import.meta.env.BASE_URL}assets/jcim.png`,
           achievements: [
             'Participation à 3 projets communautaires',
             'Support à l\'organisation d\'événements caritatifs'
