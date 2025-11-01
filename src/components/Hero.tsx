@@ -56,7 +56,7 @@ const TypewriterEffect = ({ language }: { language: 'en' | 'fr' }) => {
   }, [currentIndex, isDeleting, currentTitleIndex, titlesList]);
 
   return (
-    <h2 className="text-3xl md:text-4xl font-semibold text-white/90 mb-8 animate-fade-in-up min-h-[3rem] flex items-center justify-center">
+    <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white/90 mb-8 animate-fade-in-up min-h-[3rem] flex items-center justify-center">
       <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
         {currentText}
       </span>
@@ -114,7 +114,7 @@ const Hero = ({ language }: HeroProps) => {
 
         <TypewriterEffect language={language} />
 
-        <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up">
+        <p className="text-lg md:text-xl text-gray-700 dark:text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up">
           {t.description}
         </p>
 
@@ -128,7 +128,7 @@ const Hero = ({ language }: HeroProps) => {
           </button>
           <button
             onClick={downloadCV}
-            className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold text-lg border border-white/20 hover:bg-white/20 hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+            className="group px-8 py-4 bg-gray-100 dark:bg-white/10 backdrop-blur-sm text-gray-900 dark:text-white rounded-full font-semibold text-lg border border-gray-300 dark:border-white/20 hover:bg-gray-200 dark:hover:bg-white/20 hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
           >
             {t.contactBtn}
             <Download className="group-hover:translate-y-1 transition-transform" size={20} />
@@ -137,8 +137,8 @@ const Hero = ({ language }: HeroProps) => {
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-scroll"></div>
+        <div className="w-6 h-10 border-2 border-gray-400 dark:border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gray-600 dark:bg-white/50 rounded-full mt-2 animate-scroll"></div>
         </div>
       </div>
     </section>

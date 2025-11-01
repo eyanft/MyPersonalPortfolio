@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Home, User, Briefcase, Lightbulb, FolderOpen, Mail, Globe } from 'lucide-react';
+import { Home, User, Briefcase, Lightbulb, FolderOpen, Mail, Globe, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface NavigationProps {
   language: 'en' | 'fr';
@@ -8,6 +9,7 @@ interface NavigationProps {
 
 const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
   const [activeSection, setActiveSection] = useState('home');
+  const { theme, toggleTheme } = useTheme();
 
   const content = {
     en: {
@@ -126,7 +128,7 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
   return (
     <>
       <nav className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-        <div className="relative p-4 rounded-3xl bg-[#0a0a1a]/80 backdrop-blur-md border border-purple-500/20 shadow-2xl shadow-purple-500/10">
+        <div className="relative p-4 rounded-3xl bg-white/80 dark:bg-[#0a0a1a]/80 backdrop-blur-md border border-purple-500/20 dark:border-purple-500/20 light:border-purple-400/30 shadow-2xl shadow-purple-500/10 dark:shadow-purple-500/10 light:shadow-purple-400/5">
           <div className="space-y-6">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -140,32 +142,48 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
                   <div className={`absolute inset-0 rounded-xl transition-all duration-300 ${
                     activeSection === item.id
                       ? 'bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50'
-                      : 'bg-white/5 group-hover:bg-white/10'
+                      : 'bg-gray-200 dark:bg-white/5 group-hover:bg-gray-300 dark:group-hover:bg-white/10'
                   }`}></div>
                   <Icon
                     className={`relative z-10 transition-colors ${
-                      activeSection === item.id ? 'text-white' : 'text-white/60 group-hover:text-white'
+                      activeSection === item.id ? 'text-white dark:text-white light:text-gray-900' : 'text-gray-700 dark:text-white/60 light:text-gray-600 group-hover:text-gray-900 dark:group-hover:text-white light:group-hover:text-gray-900'
                     }`}
                     size={20}
                   />
-                  <div className="absolute left-full ml-4 px-4 py-2 rounded-lg bg-[#0a0a1a]/95 backdrop-blur-sm border border-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                    <span className="text-sm text-white">{item.label}</span>
+                  <div className="absolute left-full ml-4 px-4 py-2 rounded-lg bg-white/95 dark:bg-[#0a0a1a]/95 backdrop-blur-sm border border-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                    <span className="text-sm text-gray-900 dark:text-white">{item.label}</span>
                   </div>
                 </button>
               );
             })}
 
-            <div className="h-px bg-white/10 my-4"></div>
+            <div className="h-px bg-white/10 dark:bg-white/10 light:bg-gray-300 my-4"></div>
+
+            <button
+              onClick={toggleTheme}
+              className="group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 hover:scale-110"
+              title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+            >
+              <div className="absolute inset-0 rounded-xl bg-gray-200 dark:bg-white/5 group-hover:bg-gray-300 dark:group-hover:bg-white/10 transition-all duration-300"></div>
+              {theme === 'dark' ? (
+                <Sun className="relative z-10 text-white/60 group-hover:text-white transition-colors" size={20} />
+              ) : (
+                <Moon className="relative z-10 text-gray-700 group-hover:text-gray-900 transition-colors" size={20} />
+              )}
+              <div className="absolute left-full ml-4 px-4 py-2 rounded-lg bg-white/95 dark:bg-[#0a0a1a]/95 backdrop-blur-sm border border-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                <span className="text-sm text-gray-900 dark:text-white">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+              </div>
+            </button>
 
             <button
               onClick={toggleLanguage}
               className="group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 hover:scale-110"
               title={language === 'en' ? 'Français' : 'English'}
             >
-              <div className="absolute inset-0 rounded-xl bg-white/5 group-hover:bg-white/10 transition-all duration-300"></div>
-              <Globe className="relative z-10 text-white/60 group-hover:text-white transition-colors" size={20} />
-              <div className="absolute left-full ml-4 px-4 py-2 rounded-lg bg-[#0a0a1a]/95 backdrop-blur-sm border border-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                <span className="text-sm text-white">{language === 'en' ? 'Français' : 'English'}</span>
+              <div className="absolute inset-0 rounded-xl bg-gray-200 dark:bg-white/5 group-hover:bg-gray-300 dark:group-hover:bg-white/10 transition-all duration-300"></div>
+              <Globe className="relative z-10 text-gray-700 dark:text-white/60 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" size={20} />
+              <div className="absolute left-full ml-4 px-4 py-2 rounded-lg bg-white/95 dark:bg-[#0a0a1a]/95 backdrop-blur-sm border border-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                <span className="text-sm text-gray-900 dark:text-white">{language === 'en' ? 'Français' : 'English'}</span>
               </div>
             </button>
           </div>
@@ -173,7 +191,7 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
       </nav>
 
       <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 lg:hidden">
-        <div className="flex items-center gap-2 p-3 rounded-full bg-[#0a0a1a]/90 backdrop-blur-md border border-purple-500/20 shadow-2xl shadow-purple-500/10">
+        <div className="flex items-center gap-2 p-3 rounded-full bg-white/90 dark:bg-[#0a0a1a]/90 backdrop-blur-md border border-purple-500/20 dark:border-purple-500/20 light:border-purple-400/30 shadow-2xl shadow-purple-500/10 dark:shadow-purple-500/10 light:shadow-purple-400/5">
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -189,19 +207,29 @@ const Navigation = ({ language, toggleLanguage }: NavigationProps) => {
                 }`}></div>
                 <Icon
                   className={`relative z-10 transition-colors ${
-                    activeSection === item.id ? 'text-white' : 'text-white/60'
+                    activeSection === item.id ? 'text-white dark:text-white light:text-gray-900' : 'text-gray-700 dark:text-white/60 light:text-gray-600'
                   }`}
                   size={18}
                 />
               </button>
             );
           })}
-          <div className="w-px h-8 bg-white/10 mx-1"></div>
+          <div className="w-px h-8 bg-gray-300 dark:bg-white/10 light:bg-gray-300 mx-1"></div>
+          <button
+            onClick={toggleTheme}
+            className="relative p-3 rounded-full transition-all duration-300"
+          >
+            {theme === 'dark' ? (
+              <Sun className="text-gray-700 dark:text-white/60" size={18} />
+            ) : (
+              <Moon className="text-gray-700 dark:text-white/60" size={18} />
+            )}
+          </button>
           <button
             onClick={toggleLanguage}
             className="relative p-3 rounded-full transition-all duration-300"
           >
-            <Globe className="text-white/60" size={18} />
+            <Globe className="text-gray-700 dark:text-white/60" size={18} />
           </button>
         </div>
       </nav>

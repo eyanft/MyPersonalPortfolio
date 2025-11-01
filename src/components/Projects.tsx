@@ -443,8 +443,8 @@ const Projects = ({ language }: ProjectsProps) => {
                 className="group relative fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
+                <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 dark:hover:shadow-purple-500/20">
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/0 to-pink-500/0 dark:from-purple-500/0 dark:to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 dark:group-hover:from-purple-500/5 dark:group-hover:to-pink-500/5 transition-all duration-500"></div>
 
                   <div className="relative z-10">
                     <div className={`w-full h-48 mb-6 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
@@ -462,9 +462,9 @@ const Projects = ({ language }: ProjectsProps) => {
                       )}
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-3">{project.name}</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.name}</h3>
 
-                    <p className="text-white/70 mb-6 leading-relaxed">
+                    <p className="text-gray-700 dark:text-white/70 mb-6 leading-relaxed">
                       {project.description}
                     </p>
 
@@ -472,7 +472,7 @@ const Projects = ({ language }: ProjectsProps) => {
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300"
+                          className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-500/20 dark:to-pink-500/20 border border-purple-400/40 dark:border-purple-500/30 text-purple-700 dark:text-purple-300"
                         >
                           {tech}
                         </span>
@@ -481,7 +481,7 @@ const Projects = ({ language }: ProjectsProps) => {
 
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                      className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
                     >
                       <ExternalLink size={18} />
                       <span className="text-sm font-medium">{t.viewProject}</span>

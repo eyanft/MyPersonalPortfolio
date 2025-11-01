@@ -110,7 +110,7 @@ const Experience = ({ language }: ExperienceProps) => {
   const t = content[language];
 
   return (
-    <section id="experience" className="relative py-32 px-6 lg:pl-32 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent">
+    <section id="experience" className="relative py-32 px-6 lg:pl-32 bg-gradient-to-b from-transparent via-purple-100/30 dark:via-purple-900/10 to-transparent">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent fade-in">
           {t.title}
@@ -124,31 +124,31 @@ const Experience = ({ language }: ExperienceProps) => {
               className="group relative fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
+              <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 dark:hover:shadow-purple-500/20">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/0 to-pink-500/0 dark:from-purple-500/0 dark:to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 dark:group-hover:from-purple-500/5 dark:group-hover:to-pink-500/5 transition-all duration-500"></div>
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center overflow-hidden bg-white/5 border border-white/20">
+                  <div className="w-16 h-16 mb-6 rounded-2xl flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/20">
                     <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-2">{exp.company}</h3>
-                  <h4 className="text-lg text-purple-400 mb-3">{exp.role}</h4>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{exp.company}</h3>
+                  <h4 className="text-lg text-purple-600 dark:text-purple-400 mb-3">{exp.role}</h4>
 
-                  <div className="flex items-center gap-2 text-sm text-cyan-400 mb-2">
+                  <div className="flex items-center gap-2 text-sm text-cyan-600 dark:text-cyan-400 mb-2">
                     <MapPin size={16} />
                     {exp.location}
                   </div>
 
-                  <div className="text-sm text-white/60 mb-4">{exp.period}</div>
+                  <div className="text-sm text-gray-600 dark:text-white/60 mb-4">{exp.period}</div>
 
-                  <p className="text-white/70 mb-6 leading-relaxed">{exp.description}</p>
+                  <p className="text-gray-700 dark:text-white/70 mb-6 leading-relaxed">{exp.description}</p>
 
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300"
+                        className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-500/20 dark:to-pink-500/20 border border-purple-400/40 dark:border-purple-500/30 text-purple-700 dark:text-purple-300"
                       >
                         {tech}
                       </span>

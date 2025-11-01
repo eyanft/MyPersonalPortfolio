@@ -71,8 +71,8 @@ const About = ({ language }: AboutProps) => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="relative fade-in">
-              <div className="relative w-full aspect-square max-w-md mx-auto rounded-3xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 p-4 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl"></div>
+              <div className="relative w-full aspect-square max-w-md mx-auto rounded-3xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 dark:from-purple-500/20 dark:to-pink-500/20 backdrop-blur-sm border border-gray-300 dark:border-white/10 p-4 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/10 dark:to-pink-500/10 rounded-3xl"></div>
 
                 <div className="relative z-8 w-full h-full rounded-2xl overflow-hidden border-4 border-gradient-to-br from-pink-400 via-purple-500 to-cyan-400">
                   <img
@@ -88,15 +88,15 @@ const About = ({ language }: AboutProps) => {
             </div>
 
             <div className="fade-in">
-              <p className="text-xl text-white/80 leading-relaxed text-justify">
+              <p className="text-xl text-gray-700 dark:text-white/80 leading-relaxed text-justify">
                 {t.intro}
               </p>
             </div>
           </div>
 
           <div className="fade-in">
-            <h3 className="text-2xl font-semibold text-white mb-8 flex items-center gap-3">
-              <GraduationCap className="text-purple-400 flex-shrink-0" size={28} />
+            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+              <GraduationCap className="text-purple-600 dark:text-purple-400 flex-shrink-0" size={28} />
               <span>{t.educationTitle}</span>
             </h3>
 
@@ -104,18 +104,18 @@ const About = ({ language }: AboutProps) => {
               {t.education.map((edu, index) => (
                 <div
                   key={index}
-                  className="group relative p-6 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                  className="group relative p-6 rounded-2xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
                 >
                   <div className="flex items-start gap-4">
                     <div className="mt-1 flex-shrink-0">
-                      <Calendar className="text-cyan-400" size={20} />
+                      <Calendar className="text-cyan-600 dark:text-cyan-400" size={20} />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm text-cyan-400 mb-2 font-medium">{edu.period}</div>
-                      <h4 className="text-lg font-semibold text-white mb-1.5">{edu.degree}</h4>
-                      <p className="text-white/60 text-sm mb-1.5 leading-relaxed">{edu.school}</p>
+                      <div className="text-sm text-cyan-600 dark:text-cyan-400 mb-2 font-medium">{edu.period}</div>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-1.5">{edu.degree}</h4>
+                      <p className="text-gray-600 dark:text-white/60 text-sm mb-1.5 leading-relaxed">{edu.school}</p>
                       {edu.specialization && (
-                        <p className="text-purple-400 text-sm font-medium">{edu.specialization}</p>
+                        <p className="text-purple-600 dark:text-purple-400 text-sm font-medium">{edu.specialization}</p>
                       )}
                     </div>
                   </div>

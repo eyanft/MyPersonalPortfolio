@@ -79,7 +79,7 @@ const Volunteer = ({ language }: VolunteerProps) => {
               className="group relative fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="relative h-full rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 overflow-hidden">
+              <div className="relative h-full rounded-3xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 overflow-hidden">
                 {/* Background Image */}
                 <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
                   <img 
@@ -92,12 +92,12 @@ const Volunteer = ({ language }: VolunteerProps) => {
                   />
                 </div>
                 
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 dark:from-purple-500/0 dark:to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 dark:group-hover:from-purple-500/5 dark:group-hover:to-pink-500/5 transition-all duration-500"></div>
 
                 <div className="relative z-10 p-8">
                   {/* Logo at top */}
                   <div className="flex justify-center mb-6">
-                    <div className="w-24 h-24 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center p-3 overflow-hidden">
+                    <div className="w-24 h-24 rounded-2xl bg-gray-100 dark:bg-white/5 backdrop-blur-sm border border-gray-300 dark:border-white/10 flex items-center justify-center p-3 overflow-hidden">
                       <img 
                         src={org.image} 
                         alt={`${org.name} logo`}
@@ -105,7 +105,7 @@ const Volunteer = ({ language }: VolunteerProps) => {
                         onError={(e) => {
                           const parent = e.currentTarget.parentElement;
                           if (parent) {
-                            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center">${index === 0 ? '<svg class="text-white" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' : '<svg class="text-white" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'}</div>`;
+                            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center">${index === 0 ? '<svg class="text-gray-700 dark:text-white" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' : '<svg class="text-gray-700 dark:text-white" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'}</div>`;
                           }
                         }}
                       />
@@ -113,15 +113,15 @@ const Volunteer = ({ language }: VolunteerProps) => {
                   </div>
 
                   <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">{org.name}</h3>
-                    <div className="flex items-center justify-center gap-2 text-purple-400 text-sm mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{org.name}</h3>
+                    <div className="flex items-center justify-center gap-2 text-purple-600 dark:text-purple-400 text-sm mb-2">
                       <Calendar size={16} />
                       <span>{org.period}</span>
                     </div>
-                    <h4 className="text-lg text-cyan-400 font-medium">{org.role}</h4>
+                    <h4 className="text-lg text-cyan-600 dark:text-cyan-400 font-medium">{org.role}</h4>
                   </div>
 
-                  <p className="text-white/70 leading-relaxed mb-6">
+                  <p className="text-gray-700 dark:text-white/70 leading-relaxed mb-6">
                     {org.description}
                   </p>
 
@@ -130,9 +130,9 @@ const Volunteer = ({ language }: VolunteerProps) => {
                     {org.achievements.map((achievement, idx) => (
                       <div 
                         key={idx}
-                        className="flex items-start gap-3 text-white/80 text-sm"
+                        className="flex items-start gap-3 text-gray-700 dark:text-white/80 text-sm"
                       >
-                        <Award size={16} className="text-cyan-400 flex-shrink-0 mt-0.5" />
+                        <Award size={16} className="text-cyan-600 dark:text-cyan-400 flex-shrink-0 mt-0.5" />
                         <span>{achievement}</span>
                       </div>
                     ))}

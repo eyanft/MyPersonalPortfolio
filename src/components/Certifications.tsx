@@ -107,7 +107,7 @@ const Certifications = ({ language }: CertificationsProps) => {
   const t = content[language];
 
   return (
-    <section id="certifications" className="relative py-32 px-6 lg:pl-32 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent overflow-hidden">
+    <section id="certifications" className="relative py-32 px-6 lg:pl-32 bg-gradient-to-b from-transparent via-purple-100/30 dark:via-purple-900/10 to-transparent overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-bold text-center mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent fade-in">
           {t.title}
@@ -122,11 +122,11 @@ const Certifications = ({ language }: CertificationsProps) => {
                 className="group relative flex-none w-80 fade-in"
                 style={{ animationDelay: `${(index % t.certifications.length) * 0.1}s` }}
               >
-                <div className="relative h-full rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500"></div>
+                <div className="relative h-full rounded-3xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 dark:from-purple-500/0 dark:to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 dark:group-hover:from-purple-500/5 dark:group-hover:to-pink-500/5 transition-all duration-500"></div>
                   
                   <div className="relative z-10 p-6">
-                    <div className="w-full h-48 mb-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center p-4 overflow-hidden">
+                    <div className="w-full h-48 mb-4 rounded-2xl bg-gray-100 dark:bg-white/5 backdrop-blur-sm border border-gray-300 dark:border-white/10 flex items-center justify-center p-4 overflow-hidden">
                       <img 
                         src={cert.image} 
                         alt={cert.name}
@@ -137,14 +137,14 @@ const Certifications = ({ language }: CertificationsProps) => {
                       />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-white mb-3">{cert.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{cert.name}</h3>
                     
                     <div className="space-y-2">
-                      <p className="text-white/70 text-sm">
-                        <span className="text-cyan-400 font-medium">{t.provider}:</span> {cert.provider}
+                      <p className="text-gray-700 dark:text-white/70 text-sm">
+                        <span className="text-cyan-600 dark:text-cyan-400 font-medium">{t.provider}:</span> {cert.provider}
                       </p>
-                      <p className="text-white/70 text-sm">
-                        <span className="text-cyan-400 font-medium">{t.date}:</span> {cert.date}
+                      <p className="text-gray-700 dark:text-white/70 text-sm">
+                        <span className="text-cyan-600 dark:text-cyan-400 font-medium">{t.date}:</span> {cert.date}
                       </p>
                     </div>
                   </div>

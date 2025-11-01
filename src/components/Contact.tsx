@@ -56,38 +56,38 @@ const Contact = ({ language }: ContactProps) => {
           {t.title}
         </h2>
         <div className="h-1 w-24 mx-auto bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-full mb-4"></div>
-        <p className="text-center text-white/70 text-lg mb-16 fade-in">{t.subtitle}</p>
+        <p className="text-center text-gray-700 dark:text-white/70 text-lg mb-16 fade-in">{t.subtitle}</p>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-8 fade-in">
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10">
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
                   <Mail className="text-white" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-white/60 text-sm mb-1">{t.emailLabel}</h3>
-                  <p className="text-white font-medium">eya.naffeti01@gmail.com</p>
+                  <h3 className="text-gray-600 dark:text-white/60 text-sm mb-1">{t.emailLabel}</h3>
+                  <p className="text-gray-900 dark:text-white font-medium">eya.naffeti01@gmail.com</p>
                 </div>
               </div>
             </div>
 
 
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10">
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
                   <MapPin className="text-white" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-white/60 text-sm mb-1">{t.locationLabel}</h3>
-                  <p className="text-white font-medium">Tunis, Tunisia</p>
+                  <h3 className="text-gray-600 dark:text-white/60 text-sm mb-1">{t.locationLabel}</h3>
+                  <p className="text-gray-900 dark:text-white font-medium">Tunis, Tunisia</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="fade-in">
-            <form onSubmit={handleSubmit} className="p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 space-y-6">
+            <form onSubmit={handleSubmit} className="p-8 rounded-3xl bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-sm border border-gray-300 dark:border-white/10 space-y-6">
               <div>
                 <input
                   type="text"
@@ -95,7 +95,7 @@ const Contact = ({ language }: ContactProps) => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder={t.namePlaceholder}
-                  className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500/50 transition-colors"
+                  className="w-full px-6 py-4 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/40 focus:outline-none focus:border-purple-500/50 transition-colors"
                   required
                 />
               </div>
@@ -106,7 +106,7 @@ const Contact = ({ language }: ContactProps) => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder={t.emailPlaceholder}
-                  className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500/50 transition-colors"
+                  className="w-full px-6 py-4 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/40 focus:outline-none focus:border-purple-500/50 transition-colors"
                   required
                 />
               </div>
@@ -117,7 +117,7 @@ const Contact = ({ language }: ContactProps) => {
                   onChange={handleChange}
                   placeholder={t.messagePlaceholder}
                   rows={6}
-                  className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
+                  className="w-full px-6 py-4 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/40 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
                   required
                 ></textarea>
               </div>

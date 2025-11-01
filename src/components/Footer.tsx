@@ -21,7 +21,7 @@ const Footer = ({ language }: FooterProps) => {
   const t = content[language];
 
   return (
-    <footer className="relative py-12 px-6 border-t border-white/10">
+    <footer className="relative py-12 px-6 border-t border-gray-300 dark:border-white/10">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center space-y-6">
           <div className="flex items-center gap-6">
@@ -29,28 +29,28 @@ const Footer = ({ language }: FooterProps) => {
               href="https://github.com/eyanft"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-500/20 dark:to-pink-500/20 border border-gray-300 dark:border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
             >
-              <Github className="text-white/70 hover:text-white" size={20} />
+              <Github className="text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white" size={20} />
             </a>
             <a
               href="https://www.linkedin.com/in/eyanaffeti/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-500/20 dark:to-pink-500/20 border border-gray-300 dark:border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
             >
-              <Linkedin className="text-white/70 hover:text-white" size={20} />
+              <Linkedin className="text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white" size={20} />
             </a>
             <a
               href="mailto:eya.naffeti01@gmail.com"
-              className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-500/20 dark:to-pink-500/20 border border-gray-300 dark:border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-all hover:scale-110"
             >
-              <Mail className="text-white/70 hover:text-white" size={20} />
+              <Mail className="text-gray-700 dark:text-white/70 hover:text-gray-900 dark:hover:text-white" size={20} />
             </a>
          
           </div>
 
-          <p className="text-white/60 text-sm text-center flex items-center gap-2 flex-wrap justify-center">
+          <p className="text-gray-700 dark:text-white/60 text-sm text-center flex items-center gap-2 flex-wrap justify-center">
             <span>{t.madeWith}</span>
             <Heart className="text-pink-500 fill-pink-500 animate-pulse" size={16} />
             <span>{t.by}</span>

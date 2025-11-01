@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -40,7 +41,15 @@ function App() {
   }, []);
 
   return (
-    <div className="relative bg-[#0a0a1a] min-h-screen overflow-hidden">
+    <ThemeProvider>
+      <AppContent language={language} toggleLanguage={toggleLanguage} />
+    </ThemeProvider>
+  );
+}
+
+function AppContent({ language, toggleLanguage }: { language: 'en' | 'fr'; toggleLanguage: () => void }) {
+  return (
+    <div className="relative dark:bg-[#0a0a1a] light:bg-white min-h-screen overflow-hidden">
       <InteractiveBackground />
       <FloatingShapes />
       <Navigation language={language} toggleLanguage={toggleLanguage} />

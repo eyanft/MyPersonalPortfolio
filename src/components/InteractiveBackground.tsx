@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const InteractiveBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -20,8 +22,8 @@ const InteractiveBackground = () => {
     let animationId: number;
 
     const animate = () => {
-      // Dark background
-      ctx.fillStyle = '#0a0a1e';
+      // Background color based on theme
+      ctx.fillStyle = theme === 'dark' ? '#0a0a1e' : '#ffffff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       animationId = requestAnimationFrame(animate);
@@ -34,7 +36,7 @@ const InteractiveBackground = () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
@@ -48,7 +50,8 @@ const InteractiveBackground = () => {
         zIndex: -1,
         pointerEvents: 'none',
         display: 'block',
-        backgroundColor: '#0a0a1e'
+        backgroundColor: theme === 'dark' ? '#0a0a1e' : '#ffffff',
+        transition: 'background-color 0.3s ease'
       }}
       aria-hidden="true"
     />
