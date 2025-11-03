@@ -18,7 +18,7 @@ const Skills = ({ language }: SkillsProps) => {
         {
           name: 'Backend',
           icon: Server,
-          skills: ['Spring Boot', 'Spring Cloud', 'FastAPI', 'Python', 'Java'],
+          skills: ['Spring Boot', 'Spring Cloud', 'FastAPI', 'Python', 'Java', 'Node.js'],
           color: 'from-purple-500 to-pink-500'
         },
         {
@@ -59,7 +59,7 @@ const Skills = ({ language }: SkillsProps) => {
         {
           name: 'Backend',
           icon: Server,
-          skills: ['Spring Boot', 'Spring Cloud', 'FastAPI', 'Python', 'Java'],
+          skills: ['Spring Boot', 'Spring Cloud', 'FastAPI', 'Python', 'Java', 'Node.js'],
           color: 'from-purple-500 to-pink-500'
         },
         {
