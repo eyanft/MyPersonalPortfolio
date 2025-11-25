@@ -65,6 +65,8 @@ const TypewriterEffect = ({ language }: { language: 'en' | 'fr' }) => {
   );
 };
 
+const cvUrl = new URL('../../assets/CV-Eya-Naffeti-FR.pdf', import.meta.url).href;
+
 const Hero = ({ language }: HeroProps) => {
   const content = {
     en: {
@@ -90,7 +92,7 @@ const Hero = ({ language }: HeroProps) => {
 
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = `${import.meta.env.BASE_URL}assets/CV-Eya-Naffeti-FR.pdf`; 
+    link.href = cvUrl;
     link.download = 'CV_Eya_Naffeti.pdf'; 
     document.body.appendChild(link);
     link.click();
