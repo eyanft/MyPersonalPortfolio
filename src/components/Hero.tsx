@@ -65,7 +65,7 @@ const TypewriterEffect = ({ language }: { language: 'en' | 'fr' }) => {
   );
 };
 
-const cvUrl = new URL('../../assets/CV-Eya-Naffeti-FR.pdf', import.meta.url).href;
+const cvUrl = `${import.meta.env.BASE_URL}assets/CV-Eya-Naffeti-FR.pdf`;
 
 const Hero = ({ language }: HeroProps) => {
   const content = {
@@ -90,13 +90,27 @@ const Hero = ({ language }: HeroProps) => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const downloadCV = () => {
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.download = 'CV_Eya_Naffeti.pdf'; 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const downloadCV = async () => {
+    try {
+      const response = await fetch(cvUrl);
+
+      if (!response.ok) {
+        window.open(cvUrl, '_blank');
+        return;
+      }
+
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'CV_Eya_Naffeti.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
+    } catch {
+      window.open(cvUrl, '_blank');
+    }
   };
 
   return (
