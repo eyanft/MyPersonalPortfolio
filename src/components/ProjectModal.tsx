@@ -26,6 +26,7 @@ interface ProjectModalProps {
 const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageError, setImageError] = useState<Set<number>>(new Set());
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   if (!project) return null;
 
@@ -124,7 +125,11 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
               
               <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100/50 to-pink-100/50 dark:from-purple-500/10 dark:to-pink-500/10 border border-gray-300 dark:border-white/10">
                 {/* Main Image Display */}
-                <div className="relative aspect-video bg-gray-900/50">
+                <button
+                  type="button"
+                  onClick={() => setIsLightboxOpen(true)}
+                  className="relative aspect-video bg-gray-900/50 w-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                >
                   {!imageError.has(currentImageIndex) ? (
                     <img
                       src={images[currentImageIndex]}
@@ -165,7 +170,7 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
                       .replace('{current}', String(currentImageIndex + 1))
                       .replace('{total}', String(images.length))}
                   </div>
-                </div>
+                </button>
 
                 {/* Thumbnail Strip */}
                 {images.length > 1 && (
@@ -273,6 +278,72 @@ const ProjectModal = ({ project, onClose, language }: ProjectModalProps) => {
             )}
           </div>
         </div>
+
+        {/* Fullscreen lightbox for gallery images */}
+        {hasGallery && isLightboxOpen && (
+          <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/90">
+            <button
+              onClick={() => setIsLightboxOpen(false)}
+              className="absolute top-4 right-4 z-10 p-3 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 transition-colors"
+            >
+              <X className="text-white" size={24} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setIsLightboxOpen(false)}
+              className="absolute inset-0 w-full h-full cursor-zoom-out"
+            />
+
+            <div className="relative max-w-5xl w-full px-4 z-20">
+              <div className="relative aspect-[16/9] bg-black rounded-2xl overflow-hidden flex items-center justify-center">
+                {!imageError.has(currentImageIndex) ? (
+                  <img
+                    src={images[currentImageIndex]}
+                    alt={`${project.name} - Screenshot ${currentImageIndex + 1}`}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="text-center text-white/60">
+                      <Image size={48} className="mx-auto mb-2" />
+                      <p>Image unavailable</p>
+                    </div>
+                  </div>
+                )}
+
+                {images.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevImage();
+                      }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 text-white transition-all hover:scale-110"
+                    >
+                      <ChevronLeft size={28} />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextImage();
+                      }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 hover:bg-black/90 border border-white/20 text-white transition-all hover:scale-110"
+                    >
+                      <ChevronRight size={28} />
+                    </button>
+                  </>
+                )}
+
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/80 border border-white/20 text-white text-sm font-medium">
+                  {t.imageOf
+                    .replace('{current}', String(currentImageIndex + 1))
+                    .replace('{total}', String(images.length))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
