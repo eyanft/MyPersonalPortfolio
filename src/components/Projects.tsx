@@ -81,6 +81,37 @@ const Projects = ({ language }: ProjectsProps) => {
           role: 'Software Developer'
         },
         {
+          name: 'Poly Oil',
+          description: 'Showcase website for automotive lubricants and motor oils',
+          fullDescription: 'Poly Oil is a professional showcase website presenting a comprehensive range of automotive lubricants, motor oils, and auto fluids with an integrated admin dashboard for content and product management.',
+          challenge: 'Create a professional showcase website for automotive products with easy content management.',
+          solution: 'Development of a modern showcase platform with admin dashboard for dynamic product catalog and content management.',
+          technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+          color: 'from-orange-500 to-red-500',
+          image: `${import.meta.env.BASE_URL}assets/polyoil/po.png`,
+          gallery: [
+            `${import.meta.env.BASE_URL}assets/polyoil/po1.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po2.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po3.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po4.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po5.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po6.png`,
+      
+          ],
+          features: [
+            'Product showcase: Professional display of lubricants, motor oils, and auto fluids',
+            'Product categories: Organized by vehicle type and oil specifications',
+            'Product details: Technical specifications, viscosity grades, and usage recommendations',
+            'Admin dashboard: Complete product management (add, edit, delete)',
+            'Content management: Update site content, images, and product descriptions',
+            'Product catalog management: Organize and maintain product information',
+            'Product search: Advanced filtering by brand, viscosity, and vehicle compatibility',
+            'Contact information: Easy access to company details and inquiry forms',
+            'Responsive design: Optimized viewing across all devices',
+          ],
+          role: 'Full Stack Developer'
+        },
+        {
           name: 'ProConnect',
           description: 'Freelance platform connecting freelancers and clients',
           fullDescription: 'ProConnect is a modern freelance platform designed to connect freelancers with clients while ensuring secure transactions and seamless project management.',
@@ -280,6 +311,37 @@ const Projects = ({ language }: ProjectsProps) => {
           ],
           role: 'Développeuse Logiciel'
         },
+        {
+          name: 'Poly Oil',
+          description: 'Site web de présentation pour les produits automotifs',
+          fullDescription: 'Poly Oil est un site web professionnel de présentation des produits automotifs avec un tableau de bord administratif pour la gestion des produits et du contenu.',
+          challenge: 'Créer un site web professionnel de présentation des produits automotifs avec un tableau de bord administratif pour la gestion des produits et du contenu.',
+          solution: 'Développement d\'un site web professionnel avec un tableau de bord administratif pour la gestion des produits et du contenu.',
+          technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+          color: 'from-orange-500 to-red-500',
+          image: `${import.meta.env.BASE_URL}assets/polyoil/po.png`,
+          gallery: [
+            `${import.meta.env.BASE_URL}assets/polyoil/po1.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po2.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po3.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po4.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po5.png`,
+            `${import.meta.env.BASE_URL}assets/polyoil/po6.png`,
+          ],  
+          features: [
+            'Vitrine de produits : Affichage professionnel des lubrifiants, huiles moteurs et liquides auto',
+            'Catégories de produits : Organisées par type de véhicule et spécifications d\'huile',
+            'Détails des produits : Spécifications techniques, grades de viscosité et recommandations d\'usage',
+            'Tableau de bord admin : Gestion complète des produits (ajouter, modifier, supprimer)',
+            'Gestion du contenu : Mettre à jour le contenu du site, images et descriptions de produits',
+            'Gestion du catalogue : Organiser et maintenir les informations produits',
+            'Recherche de produits : Filtrage avancé par marque, viscosité et compatibilité véhicule',
+            'Informations de contact : Accès facile aux coordonnées de l\'entreprise et formulaires de demande',
+            'Design responsive : Affichage optimisé sur tous les appareils',
+          ],
+          role: 'Développeuse Full Stack'
+        },
+
         {
           name: 'ProConnect',
           description: 'Plateforme freelance connectant freelancers et clients',

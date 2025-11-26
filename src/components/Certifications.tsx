@@ -13,7 +13,7 @@ const Certifications = ({ language }: CertificationsProps) => {
           name: 'Git, Github, Gitlab',
           provider: 'Udemy',
           date: '2024',
-          image: `${import.meta.env.BASE_URL}assets/GIT, GitLab, GitHub Fundamentals for Software Developers.jpg`
+          image: `${import.meta.env.BASE_URL}assets/certifications/git.jpg`
         },
         {
           name: 'Introduction to MongoDB',
@@ -62,7 +62,7 @@ const Certifications = ({ language }: CertificationsProps) => {
           name: 'Git, Github, Gitlab',
           provider: 'Udemy',
           date: '2024',
-          image: `${import.meta.env.BASE_URL}assets/certifications/git.png`
+          image: `${import.meta.env.BASE_URL}assets/certifications/git.jpg`
         },
         {
           name: 'Introduction à MongoDB',
