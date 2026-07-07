@@ -16,14 +16,28 @@ const Experience = ({ language }: ExperienceProps) => {
           location: 'Ariana, Tunisia',
           description: 'Development of a mobile application for an online P2P marketplace.',
           technologies: [
-            'Spring Boot', 
-            'PostgreSQL', 
-            'React Native', 
-            'NativeWind', 
-            'Firebase', 
-            'Python FastAPI',
-            'Microservices',
-            'Docker'
+          "React Native",
+  "Docker",
+  "React",
+  "PostgreSQL",
+  "TanStack Query",
+  "JavaScript",
+  "SQL",
+  "Expo",
+  "FastAPI",
+  "Spring Boot",
+  "Python",
+  "Zustand",
+  "Axios",
+  "Java",
+  "Microservices",
+  "Firebase Cloud Messaging",
+  "Git",
+  "Monolithe modulaire",
+  "Feign Client",
+  "Firestore",
+  "Tailwind CSS",
+  "Stripe"
           ]
         },
         {
@@ -33,7 +47,14 @@ const Experience = ({ language }: ExperienceProps) => {
           period: 'Jul 2024 - Aug 2024',
           location: 'Manouba, Tunisia',
           description: 'Development of a website for showcasing car lubricant products with administrative management.',
-          technologies: ['ReactJS', 'Spring Boot']
+          technologies: [ "React",
+            "TypeScript",
+            "Tailwind",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Grafana",
+            "k6"]
         },
         {
           company: 'Medianet',
@@ -42,7 +63,7 @@ const Experience = ({ language }: ExperienceProps) => {
           period: 'Feb 2024 - May 2024',
           location: 'Ariana, Tunisia',
           description: 'Conducted user studies, created wireframes, and developed web interfaces.',
-          technologies: [ 'PHP', 'MySQL', 'CSS', 'HTML','WordPress','Figma' ]
+          technologies: [ 'PHP', 'MySQL', 'CSS', 'HTML','Javascript','Figma', 'StackShare' , 'POC']
         },
         {
           company: 'Tsunami IT',
@@ -51,7 +72,7 @@ const Experience = ({ language }: ExperienceProps) => {
           period: 'Feb 2023 - May 2023',
           location: 'Tunis, Tunisia',
           description: 'Development of a mobile application for managing cattle, their production, and integrations.',
-          technologies: ['Dart', 'Flutter', 'Laravel', 'Microservices', 'MySQL']
+          technologies: ['Dart', 'Flutter', 'Microservices', 'MySQL', 'BLoC Pattern,']
         }
       ]
     },

@@ -67,7 +67,7 @@ const Contact = ({ language }: ContactProps) => {
                 </div>
                 <div>
                   <h3 className="text-gray-600 dark:text-white/60 text-sm mb-1">{t.emailLabel}</h3>
-                  <p className="text-gray-900 dark:text-white font-medium">eya.naffeti01@gmail.com</p>
+                  <p className="text-gray-900 dark:text-white font-medium">eya.naffeti.pro@gmail.com</p>
                 </div>
               </div>
             </div>
